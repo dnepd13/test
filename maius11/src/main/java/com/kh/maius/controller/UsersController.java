@@ -2,6 +2,7 @@ package com.kh.maius.controller;
 
 import javax.servlet.http.HttpSession;
 
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,9 +13,31 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.kh.maius.entity.UsersDto;
 import com.kh.maius.repository.UsersDao;
 
-
 @Controller
 public class UsersController {
+
+	@Autowired
+	private SqlSession SqlSession;
+	
+	
+	@GetMapping("users/join")
+	public String join() {		
+		return "users/join";
+	}
+	
+	
+	@PostMapping("users/join")
+	public String join(@ModelAttribute UsersDto usersDto){
+		
+//		UsersService.join(usersDto);
+		
+		int user_no = SqlSession.selectOne("users.getNo");
+		usersDto.setUser_no(user_no);
+		
+		SqlSession.insert("users.join", usersDto);
+		
+		return "redirect:/";
+	}
 	
 	@Autowired
 	private UsersDao usersDao;

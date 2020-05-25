@@ -1,7 +1,6 @@
 package com.kh.maius.repository;
 
 import java.util.List;
-import java.util.Map;
 
 import com.kh.maius.entity.BoardDto;
 

@@ -28,6 +28,23 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	
+	
+	<!-- 회원 번호 뽑기 -->
+	<select id="getNo" resultType="int">
+		select max(user_no)+1 from users
+	</select>
+	
+	
+	
+	<!-- 회원가입 -->
+	<insert id="join" parameterType="usersDto">
+		insert into 
+		users(user_no,user_id,user_pw,user_name,user_birth)
+		values(
+		#{user_no},#{user_id},#{user_pw},#{user_name},#{user_birth})
+	</insert>
+	
+	
 </mapper>
 
 
