@@ -8,4 +8,6 @@ public class UsersDao {
 	
 	@Autowired
 	private SqlSession sqlSession;
+	
+	
 }
