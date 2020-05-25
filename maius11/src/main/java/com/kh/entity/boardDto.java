@@ -9,4 +9,5 @@ import lombok.NoArgsConstructor;
 public class boardDto {
 	private int board_no, user_no, board_replycount, board_readcount;
 	private String  board_title, board_wdate, board_content;
+	
 }
