@@ -1,12 +1,10 @@
 package com.kh.repository;
 
-import org.apache.ibatis.session.SqlSession;
-import org.springframework.beans.factory.annotation.Autowired;
 
-import com.kh.maius.entity.usersDto;
+import com.kh.maius.entity.UsersDto;
 
 public interface UsersDao {
 
 	int getNo();
-	void regist(usersDto usersDto);
+	void regist(UsersDto usersDto);
 }

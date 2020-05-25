@@ -4,7 +4,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.kh.maius.entity.usersDto;
+import com.kh.maius.entity.UsersDto;
 @Repository
 public class UsersDaoImpl implements UsersDao{
 
@@ -20,7 +20,7 @@ public class UsersDaoImpl implements UsersDao{
 	}
 
 	@Override
-	public void regist(usersDto usersDto) {
+	public void regist(UsersDto usersDto) {
 		sqlSession.insert("users.join", usersDto);		
 		
 	}
