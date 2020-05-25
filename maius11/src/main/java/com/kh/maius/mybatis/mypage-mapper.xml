@@ -22,15 +22,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  -->
 
 <mapper namespace="mypage">
-	<select id="list" parameterType="int" resultType="mypage">
+	<select id="list" parameterType="int" resultType="com.kh.maius.entity.usersDto">
 		select * from users where user_no = #{int}
 	</select>
 	
-	<update id="edit" parameterType="mypage">
+	<update id="edit" parameterType="com.kh.maius.entity.usersDto">
 		update users set user_name=#{user_name}, user_birth = to_date(#{user_birth}, 'YYYY-MM-DD') where user_no = #{user_no}
 	</update>
 	
-	<update id="pw" parameterType="mypage">
+	<update id="pw" parameterType="com.kh.maius.entity.usersDto">
 		update users set user_pw = #{user_pw} where user_no = #{user_no}
 	</update>
 	

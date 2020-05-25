@@ -1,4 +1,4 @@
-package com.kh.entity;
+package com.kh.maius.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

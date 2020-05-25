@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.kh.entity.usersDto;
+import com.kh.maius.entity.usersDto;
 import com.kh.repository.MypageDao;
 
 @Controller
