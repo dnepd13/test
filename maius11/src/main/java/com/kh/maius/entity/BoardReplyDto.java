@@ -6,7 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @AllArgsConstructor @NoArgsConstructor @Data @Builder
-public class boardReplyDto {
+public class BoardReplyDto {
 	private int reply_no;
 	private int board_no;
 	private int user_no;

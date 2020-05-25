@@ -21,10 +21,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		- $ 는 SQL Injection 이라는 해킹공격에 매우 취약하므로 사용에 주의 
  -->
 
-<mapper namespace="users">
+<mapper namespace="board">
 	<!-- 로그인 -->
-	<select id="login" parameterType="usersDto" resultType="usersDto">
-		select * from users where user_id=#{user_id} and user_pw = #{user_pw}
+	<select id="list"  resultType="boardDto">
+		select * from board order by board_no desc
 	</select>
 	
 	
