@@ -19,6 +19,7 @@ import com.kh.maius.service.BoardService;
 
 
 
+
 @Controller
 @RequestMapping("/board")
 public class BoardController {
