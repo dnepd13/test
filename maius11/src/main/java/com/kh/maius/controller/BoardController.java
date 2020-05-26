@@ -29,7 +29,7 @@ public class BoardController {
 		List<BoardDto> dto = boardDao.getList();
 		for(int i = 0; i < dto.size(); i ++) {
 			int user_no = dto.get(i).getUser_no();
-			
+			 
 		}
 		
 		return "board/list";
