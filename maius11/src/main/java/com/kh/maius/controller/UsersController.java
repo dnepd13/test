@@ -44,7 +44,7 @@ public class UsersController {
 	
 	//로그인
 	@PostMapping("/login")
-	public String login(@ModelAttribute UsersDto userdDto, HttpSession session,  Model model) {
+	public String login(@ModelAttribute UsersDto userdDto, HttpSession session) {
 		//입력된 아이디로 db에서 정보를 가져온다
 		//맞으면 게시판목록으로
 		//다르면 알림창 띄우기
@@ -54,14 +54,16 @@ public class UsersController {
 			return "redirect:/?error=1";
 		}
 		else {
-			session.setAttribute("user_id", find.getUser_id()); //세션에 찾아온 정보의 id를 저장함, 로그인 성공
+			session.setAttribute("user_no", find.getUser_no()); //세션에 찾아온 정보의 user_no를 저장함, 로그인 성공
+//			int no = (int)session.getAttribute("user_no");
+//			System.out.println(no);
 			return "redirect:/board/list";
 		}
 	}
 	
-	@GetMapping("/logout")
+	@GetMapping("users/logout")
 	public String logout(HttpSession session) {
-		session.removeAttribute("user_id");
+		session.removeAttribute("user_no");
 		return "redirect:/";						//홈으로 이동
 	}
 }
