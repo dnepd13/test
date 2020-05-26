@@ -9,7 +9,7 @@ function check() {
 		var pw = $("#pw").val();
 		var name = $("#name").val();
 		var birth = $("#birth").val();
-		
+		var count= $("#birth").val().length;
 		
 		console.log(id);
 		
@@ -36,7 +36,11 @@ function check() {
 			$("#birth").focus();
 			return false;
 		}
-		
+		if(count!=8){
+			window.alert("정확한 생년월일을 입력해주세요!");
+			$("#birth").focus();
+			return false;
+		}
 		
 		window.alert("회원가입에 성공하셨습니다!");
 return true;
