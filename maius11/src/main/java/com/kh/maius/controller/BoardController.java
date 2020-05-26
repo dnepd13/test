@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.kh.maius.repository.BoardDao;
 
+
 @Controller
 @RequestMapping("/board")
 public class BoardController {
