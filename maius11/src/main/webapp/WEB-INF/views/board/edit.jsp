@@ -32,7 +32,7 @@
 		<tr >
 			<td colspan="2" align="center">
 				<input type="submit" value="수정">
-				<a href="${pageContext.request.contextPath}/board/list">
+				<a href="${pageContext.request.contextPath}/board/list">	
 					<input class="btn22 category-btn"  type="button" value="목록">
 				</a>
 			</td>
