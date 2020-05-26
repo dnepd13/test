@@ -23,8 +23,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="board">
 
-	<select id="list"  resultType="boardDto">
-		select * from board order by board_no desc
+	<select id="list"  resultType="boardUserDto">
+		select B.*, U.*
+		from board B
+		inner join users U on B.user_no = U.user_no
+		order by B.board_no desc
 	</select>
 	
 	

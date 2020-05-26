@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.kh.maius.entity.BoardDto;
+import com.kh.maius.entity.BoardUserVO;
 
 
 @Repository
@@ -16,7 +17,7 @@ public class BoardDaoImpl implements BoardDao{
 	private SqlSession sqlSession;
 	
 	@Override
-	public List<BoardDto> getList() {
+	public List<BoardUserVO> getList() {
 		return sqlSession.selectList("board.list");
 	}
 
