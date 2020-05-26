@@ -17,6 +17,18 @@ public class UsersDaoImpl implements UsersDao{
 		return sqlSession.selectOne("users.login", usersDto);
 	}
 	
+	
+	@Override
+	public int getNo() {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("users.getNo");
+	}
+
+	@Override
+	public void regist(UsersDto usersDto) {
+		sqlSession.insert("users.join", usersDto);		
+		
+	}
 
 	
 }

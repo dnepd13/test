@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.kh.maius.entity.UsersDto;
-import com.kh.repository.MypageDao;
+import com.kh.maius.repository.MypageDao;
+
 
 @Controller
 @RequestMapping("/mypage")
