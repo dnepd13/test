@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.kh.maius.entity.BoardDto;
 
+
 @Repository
 public class BoardDaoImpl implements BoardDao{
 

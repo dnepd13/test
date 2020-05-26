@@ -16,10 +16,6 @@ import com.kh.maius.entity.BoardDto;
 import com.kh.maius.repository.BoardDao;
 import com.kh.maius.service.BoardService;
 
-
-
-
-
 @Controller
 @RequestMapping("/board")
 public class BoardController {
@@ -40,7 +36,6 @@ public class BoardController {
 		
 		return "board/list";
 	}
-	
 	
 	@GetMapping("/regist")
 	public String regist() {
@@ -66,9 +61,6 @@ public class BoardController {
 	}
 	
 	
-	
-	
-/////////////글 수정/////////
 @GetMapping("/edit")
 public String edit(@RequestParam int board_no,
 							Model model) {
@@ -88,7 +80,4 @@ BoardService.edit(boardDto);
 int no = boardDto.getBoard_no(); //게시글 번호 구해서 리다이렉트에 사용
 return "redirect:content?board_no="+no;		
 }
-	
-	
-	
 }
