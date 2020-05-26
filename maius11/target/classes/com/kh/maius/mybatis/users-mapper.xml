@@ -41,7 +41,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		insert into 
 		users(user_no,user_id,user_pw,user_name,user_birth)
 		values(
-		#{user_no},#{user_id},#{user_pw},#{user_name},#{user_birth})
+		#{user_no},#{user_id},#{user_pw},#{user_name},to_date(#{user_birth}, 'YYYY-MM-DD'))
 	</insert>
 	
 	

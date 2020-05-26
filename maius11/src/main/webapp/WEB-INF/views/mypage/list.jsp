@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta charset="EUC-KR">
 <title>Insert title here</title>
 <style>
 	h1{
@@ -21,22 +21,22 @@
 </style>
 </head>
 <body>
-<h1>íšŒì›ì •ë³´</h1>
+<h1>È¸¿øÁ¤º¸</h1>
 	<hr>
 		<div class="can">
-		<h3>ì•„ì´ë””</h3>
+		<h3>¾ÆÀÌµğ</h3>
 		<h4>${my.user_id}</h4>
 		</div>
 	<hr>
-		<div class="can">ì´ë¦„
+		<div class="can">ÀÌ¸§
 		${my.user_name}</div>
 	<hr>
-		<div class="can">ìƒì¼
+		<div class="can">»ıÀÏ
 		${my.user_birth.substring(0,10)}</div>
 	<hr>
 <a href="${pageContext.request.contextPath}/mypage/edit?user_no=${my.user_no}">
 	<div class="can">
-		<button>ì •ë³´ìˆ˜ì •</button>
+		<button>Á¤º¸¼öÁ¤</button>
 	</div>
 </a>
 </body>

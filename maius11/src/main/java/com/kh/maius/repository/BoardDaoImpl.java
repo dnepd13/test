@@ -20,4 +20,22 @@ public class BoardDaoImpl implements BoardDao{
 		return sqlSession.selectList("board.list");
 	}
 
+	public int getsequence() {
+		return sqlSession.selectOne("board.getNo");
+	}
+
+	public void regist(BoardDto boardDto) {
+		sqlSession.insert("board.regist", boardDto);		
+	}
+	
+	public BoardDto get(int board_no) {		
+		return sqlSession.selectOne("board.get", board_no); //board_no를 주고 단일조회한다.
+	}
+
+	@Override
+	public void edit(BoardDto boardDto) {
+		sqlSession.update("board.edit", boardDto);
+	}
+	
+	
 }

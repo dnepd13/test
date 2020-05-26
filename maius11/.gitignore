@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 # Created by https://www.gitignore.io/api/java,java-web
 # Edit at https://www.gitignore.io/?templates=java,java-web
@@ -46,3 +47,6 @@ hs_err_pid*
 
 
 
+=======
+/target/
+>>>>>>> refs/remotes/origin/master
