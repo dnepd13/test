@@ -12,9 +12,8 @@ public class MypageDao {
 	@Autowired
 	SqlSession sqlSession;
 	
-	public UsersDto list() {
-		int no = 1;
-		UsersDto user = sqlSession.selectOne("mypage.list", no);
+	public UsersDto list(int user_no) {
+		UsersDto user = sqlSession.selectOne("mypage.list", user_no);
 		
 		return user;
 	}

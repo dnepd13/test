@@ -55,6 +55,7 @@ public class UsersController {
 		}
 		else {
 			session.setAttribute("user_id", find.getUser_id()); //세션에 찾아온 정보의 id를 저장함, 로그인 성공
+			session.setAttribute("user_no", find.getUser_no());
 			return "redirect:/board/list";
 		}
 	}
