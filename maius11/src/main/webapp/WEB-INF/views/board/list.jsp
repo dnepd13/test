@@ -18,14 +18,14 @@
 				${list.board_no} 
 			</td>
 			<td style="text-align: left">
-				<a href=${pageContext.request.contextPath}/board/content?board_no=${list.board_no}>${list.board_title }</a> 
+				<a href=${pageContext.request.contextPath}/board/detail?board_no=${list.board_no}>${list.board_title }</a> 
 				[${list.board_replycount }] 
 			</td>
 			<td>
 				${list.board_readcount} 
 			</td>
 			<td>
-				${list.user_no}
+				${list.user_name}
 			</td>
 			<td>
 				${list.board_wdate.substring(0,16) }
@@ -33,3 +33,17 @@
 		</tr>				
 	</c:forEach>
 </table>
+
+  <div class="container nav" style="text-align: center;">
+    		<!-- 네비게이터(navigator) -->    		
+    		<jsp:include page="/WEB-INF/views/template/board_navigator.jsp">
+    			<jsp:param name="pno" value="${pno}" />
+    			<jsp:param name="count" value="${count}" />
+    			<jsp:param name="navsize" value="${navsize}" />
+    			<jsp:param name="pagesize" value="${pagesize}" />
+    			<jsp:param name="board_category" value="${board_category}"/>
+    		</jsp:include>
+    	
+	
+	
+</div>
