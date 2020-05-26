@@ -18,7 +18,7 @@ public class BoardDaoImpl implements BoardDao{
 	private SqlSession sqlSession;
 	
 	@Override
-	public List<BoardDto> getList() {
+	public List<BoardUserVO> getList() {
 		return sqlSession.selectList("board.list");
 	}
 

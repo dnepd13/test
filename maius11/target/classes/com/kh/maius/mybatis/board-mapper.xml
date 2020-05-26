@@ -23,9 +23,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="board">
 
-	<!-- <select id="list"  resultType="boardDto">
-		select * from board order by board_no desc
-	</select> -->
+
+
 	
 	
 	

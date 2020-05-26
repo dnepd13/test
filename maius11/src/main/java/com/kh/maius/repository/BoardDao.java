@@ -9,7 +9,7 @@ import com.kh.maius.entity.BoardUserVO;
 
 public interface BoardDao {
 	//게시판 목록 조회기능
-		List<BoardDto> getList();
+		List<BoardUserVO> getList();
 		
 		int getsequence();
 		
