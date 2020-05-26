@@ -14,9 +14,9 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	
 	<!-- 별칭 -->
 	<typeAliases>
-		<typeAlias type="com.kh.maius.entity.boardDto" alias="boardDto"/>
-		<typeAlias type="com.kh.maius.entity.boardDto" alias="boardReplyDto"/>
-		<typeAlias type="com.kh.maius.entity.boardDto" alias="usersDto"/>
+		<typeAlias type="com.kh.maius.entity.BoardDto" alias="boardDto"/>
+		<typeAlias type="com.kh.maius.entity.BoardReplyDto" alias="boardReplyDto"/>
+		<typeAlias type="com.kh.maius.entity.UsersDto" alias="usersDto"/>
 	</typeAliases>
 	
 </configuration>

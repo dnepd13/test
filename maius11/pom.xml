@@ -1,15 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/maven-v4_0_0.xsd">
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/maven-v4_0_0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0">
 	<modelVersion>4.0.0</modelVersion>
 		<!-- 소속정보 -->
 	<groupId>com.kh</groupId>
 	<artifactId>maius</artifactId>
 	<name>maius11</name>
-	
 	<!-- 내보낼 형태 정보 -->
 	<packaging>war</packaging>
-	
 	<!-- 버전 정보 -->
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<!--

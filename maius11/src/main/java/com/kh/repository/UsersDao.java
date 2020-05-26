@@ -1,13 +1,9 @@
 package com.kh.repository;
 
-import org.apache.ibatis.session.SqlSession;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.kh.maius.entity.UsersDto;
 
-public class UsersDao {
+public interface UsersDao {
 
-	
-	@Autowired
-	private SqlSession sqlSession;
-	
-	
+	int getNo();
+	void regist(UsersDto usersDto);
 }
