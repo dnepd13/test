@@ -25,6 +25,18 @@
 			})
 		});
 	});
+	
+	
+	function check(){
+		if(confirm("정말 삭제하시겠습니까?")==true){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+	
+	
 </script>
 
 </head>
@@ -61,7 +73,7 @@
 		<td colspan="2">
 			<button>글쓰기버튼 </button>
 			<button>수정버튼</button>
-			<button>삭제버튼 </button>
+			<a href="delete?board_no=${detail.board_no}"><input  type="button" value="삭제" onclick="return check();"></a>
 			<button> 목록버튼</button>
 		 </td>
 	</tr>

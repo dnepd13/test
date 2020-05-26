@@ -12,14 +12,14 @@ public class BoardDetailDao {
 	@Autowired
 	SqlSession sqlSession;
 	
-	public BoardUserVO detail() {
-		int board_no = 1; //바꿔야 할것
+	public BoardUserVO detail(int board_no) {
+//		int board_no = 1; //바꿔야 할것
 		BoardUserVO boardUserDto = sqlSession.selectOne("boarddetail.detail", board_no);
 		return boardUserDto;
 	}
 	
-	public void  readcountup() {
-		int board_no = 1; //바꿔야 할것
+	public void  readcountup(int board_no) {
+//		int board_no = 1; //바꿔야 할것
 		sqlSession.update("boarddetail.up", board_no);
 	}
 }

@@ -1,5 +1,9 @@
 package com.kh.maius.controller;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,12 +12,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.kh.maius.entity.BoardReplyDto;
 import com.kh.maius.entity.BoardUserVO;
 import com.kh.maius.repository.BoardDetailDao;
 import com.kh.maius.repository.BoardReplyDao;
+import com.kh.maius.service.BoardService;
 
 @Controller
 @RequestMapping("/board")
@@ -25,14 +31,59 @@ public class BoardDetailController {
 	@Autowired
 	BoardReplyDao replyDao;
 	
+	@Autowired
+	BoardService BoardService;
+	
 	@GetMapping("/detail")
-	public String detail(Model model) {
-		BoardUserVO vo = detailDao.detail();
-		model.addAttribute("detail", vo);
+	public String detail(Model model,@RequestParam int board_no,HttpServletRequest request,
+			HttpSession session) {
+		BoardUserVO vo = detailDao.detail(board_no);/////조인다시!!
 		
-		model.addAttribute("reply", replyDao.replyList(vo.getBoard_no()));
+		//추가 : 이미 읽은 글은 조회수 증가를 방지
+		//[1] 세션에 있는 저장소를 꺼내고 없으면 신규 생성한다
+		Set<Integer> memory = (Set<Integer>) session.getAttribute("memory");
 		
-		detailDao.readcountup();
+		//memory가 없는 경우에는 null 값을 가진다
+		if(memory == null){
+			memory = new HashSet<>();	//세션에 저장소가 없으면 저장소를 1번 생성한다.
+		}
+		
+		String user_id = (String) session.getAttribute("user_id");
+		
+		if(user_id != null) {
+			boolean isMine = user_id.equals(vo.getUser_id()); //사용자이름 == 작성자이름 라고 물어보는것
+			boolean isFirst = memory.add(board_no); //배열에 조회한 글번호를 넣어서 처음 들어가면 true, 재조회라면 false임 
+
+			//[3] 처리를 마치고 저장소를 다시 세션에 저장한다
+			session.setAttribute("memory", memory); //세션에 저장소가 들어간다.
+
+			//남의 글이라면 == !isMine  조회수를 증가시킨다.
+			//처음읽는 글이라면 == isFirst
+			if(!isMine && isFirst){		
+				vo.setBoard_readcount(vo.getBoard_readcount()+1); //의도적으로 화면에 표시되는 조회수를 1 증가시킨다.
+				BoardService.readCount(board_no);	//조회수 증가
+			}
+
+			model.addAttribute("detail", vo);	
+		}
+		else {
+			model.addAttribute("detail", vo);
+		}
+
+		
+	
+		
+		
+		
+		
+		/* model.addAttribute("reply", replyDao.replyList(vo.getBoard_no())); */
+		
+//		detailDao.readcountup();
+		
+		
+		
+		
+		
 		return "board/detail";
 	}
 	

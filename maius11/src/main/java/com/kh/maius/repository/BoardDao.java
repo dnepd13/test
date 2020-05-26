@@ -1,6 +1,7 @@
 package com.kh.maius.repository;
 
 import java.util.List;
+import java.util.Map;
 
 import com.kh.maius.entity.BoardDto;
 import com.kh.maius.entity.BoardUserVO;
@@ -17,4 +18,12 @@ public interface BoardDao {
 		public BoardDto get(int board_no);
 
 		void edit(BoardDto boardDto);
+
+		void delete(int board_no);
+
+		int boardCount();
+
+		List<BoardUserVO> getList(Map<String, Integer> param);
+
+		void readCount(int board_no);
 }
