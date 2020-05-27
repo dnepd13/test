@@ -14,13 +14,33 @@
 	.nav-item:active a{
 	color: black;
 	}
+	.bg-light{
+		background-color: white;
+	}
+	.navbar{
+		background-color: white;
+	}
+	html, body{
+	 	margin:0; padding:0; width:100%; height:100%;
+	 }
+	 .wrapper{ 
+	 	display: flex; min-height: 100vh; flex-direction: column;
+	}
+	.cont{
+		flex: 1;
+		 min-height: 80%;
+	}
+	.info{
+		flex: 1;
+		 min-height: 75%;
+	}
 </style>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a href="${pageContext.request.contextPath}/board/list" style="margin-left: 30px; margin-bottom: 10px;">
  	 <img src="${pageContext.request.contextPath}/resources/image/logo.jpg" width="150px" height="60px">
   </a>
-    	<span style="margin-left: 750px;"><i class="fas fa-user-alt"></i> ${user_name}님 환영합니다</span>
+    	<span style="margin-left: 50%;"><i class="fas fa-user-alt"></i> ${user_name}님 환영합니다</span>
   <div class="collapse navbar-collapse d-flex flex-row-reverse bd-highlight"" id="navbarNav" >
     <ul class="navbar-nav " >
       <li class="nav-item ">

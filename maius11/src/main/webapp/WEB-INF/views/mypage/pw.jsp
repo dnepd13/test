@@ -32,8 +32,8 @@
 	}
 </script>
 <style>
-		.info{
- 		margin-top:130px; 
+		.info2{
+  		margin-top:100px;  
 		margin-left: 30%;
 		margin-right: 30%;
 		padding: 20px;
@@ -80,6 +80,9 @@
 		margin-right: 50px;
 		box-shadow: none;
 	}
+	.cont{
+		min-height: 65%
+	}
 </style>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -89,7 +92,8 @@
 	<p style="background-color: rgb(224, 224, 224); padding: 7px; padding-left:50px; font-weight: bold; font-size: 1.1rem;">> 마이페이지</p>
 </div> 
 
-<div class="info">
+<div class="cont">
+<div class="info2">
 	<h5 style="padding-left: 20px; font-weight: bold;">비밀번호 변경</h5>
 	
 <form action="pw" method="post" onsubmit="return check();">
@@ -120,6 +124,7 @@
 			<input class="clickbtn2" type="button" value="뒤로가기" style="background-color:  rgb(94, 94, 94);" onclick="return back();">
 		</div>		
 </form>
+</div>
 </div>
 </body>
 <script>

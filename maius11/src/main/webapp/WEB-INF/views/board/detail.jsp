@@ -53,10 +53,10 @@
 				if(data.length > 0){
 					for(var i=0; i<data.length; i++){
 						html +="<div>";
-						html +="<div><table><tr><td data-reply-no="+data[i].reply_no;
+						html +="<div><table class=table table-bordered><tr><td data-reply-no="+data[i].reply_no;
 						html +=" data-board-no="+data[i].board_no;
-						html +=" data-user-no="+data[i].user_no+">"+data[i].user_name;
-						html +=data[i].reply_wdate;
+						html +=" data-user-no="+data[i].user_no+">"+"<span class=space>"+data[i].user_name+"</span>";
+						html += "<span class=space>"+data[i].reply_wdate.substring(0,16)+"</span>";
 						if(id==data[i].user_no){
 							html +='<button class="modify">수정</button><button class="del">삭제</button></td></tr>';
 						}
@@ -158,40 +158,142 @@
 	}
 	
 </script>
+<style>
+	.color{
+		background-color: whitesmoke;
+		vertical-align: middle;
+		line-height: 1.5;
+	}
+	.flex-wrap{
+            display: flex;
+            flex-direction: row;           /* 줄 안에 배치 */
+        }
+        @media screen and (max-width:640px){
+            .flex-wrap{
+             flex-direction: column;   /* 칸 안에 배치 */    
+             }
+        }
+        .item1{
+            flex-grow: 9;                   /* 줄에서 남은 공간을 차지하는 비율 */
+            height: 100px;                 /* 1개만 높이가 있어도 나머지가 같은 높이로 설정된다. */
+        }
+        .item2{
+            flex-grow: 1;
+        }
+         .item3{
+            flex-grow: 9;                   /* 줄에서 남은 공간을 차지하는 비율 */
+            height: 20px;                 /* 1개만 높이가 있어도 나머지가 같은 높이로 설정된다. */
+        }
+        .item4{
+            flex-grow: 1;
+            text-align : right;
+        }
+        .re_input{
+		     font-size: 13px;
+			  display: inline-block;
+			  font-weight: 400;
+			  color: #212529;
+			  text-align: center;
+			  vertical-align: middle;
+			  background-color: whitesmoke;
+			  border: 1px solid #dee2e6;
+			  padding: 0.375rem 0.75rem;
+			  line-height: 1.5;
+        }
+        .clickbtn{
+			border:none;
+			font-size: 13px;
+			background-color: rgb(94, 94, 94);
+			border-radius: 0.25rem;
+			color: white;		
+			padding: 0.375rem 0.75rem;
+			text-decoration: none;
+		}
+	 .clickbtn2{
+			border:none;
+			font-size: 13px;
+			background-color: #3498DB;
+			border-radius: 0.25rem;
+			color: white;		
+			padding: 0.375rem 0.75rem;
+			text-decoration: none;
+		}
+		.space{
+			margin-right: 20px;
+		}
+		.modify{
+			border:none;
+			font-size: 13px;
+			background-color: rgb(94, 94, 94);
+			border-radius: 0.25rem;
+			color: white;		
+			padding: 0.2rem 0.5rem;
+			text-decoration: none;
+			margin-right: 5px;
+		}
+		.del{
+			border:none;
+			font-size: 13px;
+			background-color: #3498DB;
+			border-radius: 0.25rem;
+			color: white;		
+			padding: 0.2rem 0.5rem;
+			text-decoration: none;
+		}
+</style>
 
 </head>
 <body>
-<h2>게시글 상세보기</h2>
-<table border="1" align="center">
+<div>	<!-- header와 경계선 -->
+	<p style="background-color: rgb(224, 224, 224); padding: 7px; padding-left:50px; font-weight: bold; font-size: 1.1rem;">> 자유게시판</p>
+</div> 
+
+<div class="container"  style="border: 1px solid #dee2e6 !important; padding-top: 15px; margin-bottom: 10px; font-size: 14px;">	
+<table class="table table-bordered">
 	<tr>
-		<td>${detail.board_title }</td>
-		<td>${detail.board_wdate }</td>
+		<td class="color" colspan="2">
+			<div class="flex-wrap">
+				<span class="item3">${detail.board_title }</span>
+
+				<span class="item4" style="text-align: right">${detail.board_wdate.substring(0,16) }</span>
+			</div>
+		</td>
 	</tr>
 	<tr>
 		<td colspan="2">${detail.user_id }</td>
 	</tr>
 	<tr>
-		<td colspan="2">${detail.board_content}</td>
+		<td colspan="2" height="200">${detail.board_content}</td>
 	</tr>
 	<tr>
-		<td colspan="2">댓글수(<span id="reply_count"></span>) / 조회수(${detail.board_readcount})</td>
-	</tr>
-	<tr>
-		<td colspan="2">
-			<a href="${pageContext.request.contextPath}/board/regist"><button>글쓰기버튼</button></a>
-			<c:if test="${detail.user_no==user_no}">
-				<a href="${pageContext.request.contextPath}/board/edit?board_no=${detail.board_no }"><button>수정버튼</button></a>
-				<a onclick="return delCheck();" href="${pageContext.request.contextPath}/board/delete?board_no=${detail.board_no}"><button>삭제버튼 </button></a>
-			</c:if>
-			<a href="${pageContext.request.contextPath}/board/list"><button> 목록버튼</button></a>
-		 </td>
-	</tr>
-	<tr>
-		<td><input type="text" name="reply_content" id="content"></td>
-		<td><button id="insertReply">댓글등록</button></td>
+		<td  class="color" colspan="2">댓글수 <span id="reply_count"></span> &nbsp; | &nbsp; 조회수 ${detail.board_readcount}</td>
 	</tr>
 </table>
-	<div id="commentList" align="center"></div>
-</body>
+	
+<div id="commentList" align="center"></div>
 
+<table class="table table-bordered">	
+	<tr>
+		<td>
+			<div class="flex-wrap">
+				<textarea name="reply_content" id="content" rows="4" required style="width: 87%;"></textarea>
+				<button class="re_input item2" id="insertReply">댓글등록</button>
+			</div>
+		</td>
+	</tr>
+	<tr align="right">
+		<td colspan="2">
+			<a href="${pageContext.request.contextPath}/board/regist"><button class="clickbtn2">글쓰기</button></a>
+			<c:if test="${detail.user_no==user_no}">
+				<a href="${pageContext.request.contextPath}/board/edit?board_no=${detail.board_no }"><button class="clickbtn">수정</button></a>
+				<a onclick="return delCheck();" href="${pageContext.request.contextPath}/board/delete?board_no=${detail.board_no}"><button class="clickbtn">삭제 </button></a>
+			</c:if>
+			<a href="${pageContext.request.contextPath}/board/list"><button class="clickbtn2"> 목록</button></a>
+		 </td>
+	</tr>
+</table>
+</div>
+
+</body>
+<jsp:include page="/WEB-INF/views/template/footer.jsp"></jsp:include>
 </html>
