@@ -49,7 +49,6 @@ public class UsersController {
 		//맞으면 게시판목록으로
 		//다르면 메세지 띄우기
 		UsersDto find = usersDao.login(userdDto);
-		System.out.println(find);
 		if(find == null) {			//맞는 정보가 없다
 			return "redirect:/?error=1";
 		}
