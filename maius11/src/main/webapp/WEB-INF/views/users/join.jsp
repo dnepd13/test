@@ -21,7 +21,7 @@ function check() {
 		}
 		
 		if(!RegExp(/^[a-zA-Z0-9]{4,20}$/).test($("#id").val())){
-			alert("비밀번호는 대문자 및 소문자, 숫자로 구성가능하며 4~20자리를 입력해야 합니다");
+			alert("아이디는 대문자 및 소문자, 숫자로 구성가능하며 4~20자리를 입력해야 합니다");
 			$("#id").focus();
 			return false;
 		}
@@ -111,19 +111,19 @@ return true;
 	</div>
 	<div class="sign">
 		<p class="sign-item">
-			<span class="sign-tag">아이디</span> <span><input id="id" type="text" name="user_id" placeholder="id" ></span>
+			<span class="sign-tag">아이디</span> <span ><input id="id" type="text" name="user_id" placeholder="id" ></span>
 		</p>
 		<p class="sign-item">
-			<span class="sign-tag">암호</span> <span><input type="password" name="user_pw" placeholder="pw"  id="pw"></span>
+			<span class="sign-tag">암호</span> <span ><input type="password" name="user_pw" placeholder="pw"  id="pw"></span>
 		</p>
 		
 		<p class="sign-item">
-			<span class="sign-tag">이름</span>  <span><input type="text" name="user_name" placeholder="name"  id="name"></span>
+			<span class="sign-tag">이름</span>  <span ><input type="text" name="user_name" placeholder="name"  id="name"></span>
 		</p>		
 		
 		<p class="sign-item">
-			<span class="sign-tag">생년월일</span> <input type="date" name="user_birth" placeholder="birth"  id="birth">
-		</p>		
+			<span class="sign-tag">생년월일</span> <span ><input type="date" name="user_birth" placeholder="birth"  id="birth"></span>
+		</p>		 
 		
 		<p class="sign-item" align="center">
 			<input class="clickbtn" type="submit" value="가입하기">
