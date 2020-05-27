@@ -1,6 +1,7 @@
 package com.kh.maius.controller;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.HashSet;
@@ -49,6 +50,11 @@ public class BoardDetailController {
 	public String detail(Model model,@RequestParam int board_no,HttpServletRequest request,
 			HttpSession session) {
 		BoardUserVO vo = detailDao.detail(board_no);/////조인다시!!
+		
+		Calendar cal = Calendar.getInstance();
+		
+		int year = cal.get(cal.YEAR);
+		model.addAttribute("year", year);
 		
 		//추가 : 이미 읽은 글은 조회수 증가를 방지
 		//[1] 세션에 있는 저장소를 꺼내고 없으면 신규 생성한다
@@ -133,6 +139,7 @@ public class BoardDetailController {
 				hm.put("reply_wdate", reply.get(i).getReply_wdate());
 				hm.put("user_no", reply.get(i).getUser_no());
 				hm.put("board_no", reply.get(i).getBoard_no());
+				hm.put("user_birth", reply.get(i).getUser_birth());
 				hmlist.add(hm);
 			}
 		}
