@@ -72,9 +72,10 @@
 	<tr>
 		<td colspan="2">
 			<button>글쓰기버튼 </button>
-			<button>수정버튼</button>
+			<a href="edit?board_no=${detail.board_no}"><input  type="button" value="수정" ></a>	
 			<a href="delete?board_no=${detail.board_no}"><input  type="button" value="삭제" onclick="return check();"></a>
-			<button> 목록버튼</button>
+			<a href="list"><input  type="button" value="목록" ></a>	
+		
 		 </td>
 	</tr>
 </table>
