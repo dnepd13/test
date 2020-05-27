@@ -1,13 +1,10 @@
 package com.kh.maius.controller;
 
-<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-=======
 import java.util.HashSet;
 import java.util.Set;
->>>>>>> refs/remotes/origin/master
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -27,6 +24,7 @@ import com.fasterxml.jackson.databind.jsonFormatVisitors.JsonArrayFormatVisitor;
 import com.kh.maius.entity.BoardReplyDto;
 import com.kh.maius.entity.BoardUserVO;
 import com.kh.maius.entity.ReplyUserVO;
+import com.kh.maius.repository.BoardDao;
 import com.kh.maius.repository.BoardDetailDao;
 import com.kh.maius.repository.BoardReplyDao;
 import com.kh.maius.service.BoardService;
@@ -40,6 +38,9 @@ public class BoardDetailController {
 	
 	@Autowired
 	BoardReplyDao replyDao;
+	
+	@Autowired
+	BoardDao boardDao;
 	
 	@Autowired
 	BoardService BoardService;
@@ -93,15 +94,17 @@ public class BoardDetailController {
 				@ModelAttribute BoardReplyDto replyDto,
 				HttpSession session
 			) {
-		int user_no = (int)session.getAttribute("user_no");
 		
 		BoardReplyDto boardReplyDto = BoardReplyDto.builder().
 				board_no(replyDto.getBoard_no()).
-				user_no(user_no).
+				user_no(replyDto.getUser_no()).
 				reply_content(replyDto.getReply_content()).
 				build();
 		
 		replyDao.replyInsert(boardReplyDto);
+		
+		//리플라이 증가
+		boardDao.boardReplyCountUp(replyDto.getBoard_no());
 		
 		return "success";
 	}
@@ -148,6 +151,9 @@ public class BoardDetailController {
 	public String replydel(@ModelAttribute ReplyUserVO vo) {
 		
 		replyDao.replyDelete(vo);
+		
+		//리플라이 감소
+		boardDao.boardReplyCountDown(vo.getBoard_no());
 		
 		return "success";
 	}

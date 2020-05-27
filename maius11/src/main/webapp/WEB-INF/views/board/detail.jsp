@@ -16,7 +16,8 @@
 					url:"/maius/board/replyinsert",
 					data:{
 						board_no:"${detail.board_no}",
-						reply_content:$("#content").val()
+						reply_content:$("#content").val(),
+						user_no:"${user_no}"
 					},
 					success:function(data){
 						if(data=="success"){
@@ -118,13 +119,14 @@
 			if(confirm("정말 삭제하시겠습니까?")==true){
 				var td = $(this).parent().prev();
 				var reply_no = td.data("reply-no");
-				
+				var board_no = td.data("board-no");
 				console.log(reply_no);
 				
 				$.ajax({
 					url:"/maius/board/replydel",
 					data:{
-						"reply_no":reply_no						
+						"reply_no":reply_no,
+						"board_no":board_no
 					},
 					success:function(data){
 						if(data=="success"){
