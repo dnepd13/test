@@ -52,17 +52,23 @@ public class BoardDetailController {
 		
 		//추가 : 이미 읽은 글은 조회수 증가를 방지
 		//[1] 세션에 있는 저장소를 꺼내고 없으면 신규 생성한다
-		Set<Integer> memory = (Set<Integer>) session.getAttribute("memory");
+		@SuppressWarnings("unchecked")
+		Set<Integer> attribute = (Set<Integer>) session.getAttribute("memory");
+		Set<Integer> memory = attribute;
 		
 		//memory가 없는 경우에는 null 값을 가진다
-		if(memory == null){
+	if(memory == null){
 			memory = new HashSet<>();	//세션에 저장소가 없으면 저장소를 1번 생성한다.
 		}
 		
+//		String user_name = (String) session.getAttribute("user_name");
 		String user_id = (String) session.getAttribute("user_id");
 		
+		
+		
 		if(user_id != null) {
-			boolean isMine = user_id.equals(vo.getUser_id()); //사용자이름 == 작성자이름 라고 물어보는것
+//			System.out.println(memory);
+			boolean isMine = user_id.equals(vo.getUser_id()); //사용자아이디 == 작성자아이디 라고 물어보는것
 			boolean isFirst = memory.add(board_no); //배열에 조회한 글번호를 넣어서 처음 들어가면 true, 재조회라면 false임 
 
 			//[3] 처리를 마치고 저장소를 다시 세션에 저장한다
@@ -74,7 +80,6 @@ public class BoardDetailController {
 				vo.setBoard_readcount(vo.getBoard_readcount()+1); //의도적으로 화면에 표시되는 조회수를 1 증가시킨다.
 				BoardService.readCount(board_no);	//조회수 증가
 			}
-
 			model.addAttribute("detail", vo);	
 		}
 		else {

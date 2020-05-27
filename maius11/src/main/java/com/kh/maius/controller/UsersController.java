@@ -56,17 +56,18 @@ public class UsersController {
 		else {
 			session.setAttribute("user_name", find.getUser_name()); //세션에 찾아온 정보의 이름, 번호를 저장함, 로그인 성공
 			session.setAttribute("user_no", find.getUser_no());
+			session.setAttribute("user_id", find.getUser_id());
 			return "redirect:/board/list";
 		}
 	}
 	
 	@GetMapping("/logout")
 	public String logout(HttpSession session) {
-		session.removeAttribute("user_no");
-
-
-
 		session.removeAttribute("user_name");
+		session.removeAttribute("user_no");
+		session.removeAttribute("user_id");
+		
+		session.removeAttribute("memory");
 
 		return "redirect:/";						//홈으로 이동
 	}
