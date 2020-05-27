@@ -18,6 +18,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<typeAlias type="com.kh.maius.entity.BoardReplyDto" alias="boardReplyDto"/>
 		<typeAlias type="com.kh.maius.entity.UsersDto" alias="usersDto"/>
 		<typeAlias type="com.kh.maius.entity.BoardUserVO" alias="boardUserDto"/>
+		<typeAlias type="com.kh.maius.entity.ReplyUserVO" alias="replyUserVO"/>
 	</typeAliases>
 	
 </configuration>
