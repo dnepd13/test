@@ -14,4 +14,5 @@ public class ReplyUserVO {
 	private String reply_wdate;
 	private String user_name;
 	private String user_id;
+	private String user_birth;
 }

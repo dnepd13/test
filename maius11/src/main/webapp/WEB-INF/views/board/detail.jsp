@@ -52,11 +52,12 @@
 				var id = "${user_no}";
 				if(data.length > 0){
 					for(var i=0; i<data.length; i++){
+						var age = "${year}"-data[i].user_birth.substring(0,4)+1;
 						html +="<div>";
 						html +="<div><table><tr><td data-reply-no="+data[i].reply_no;
 						html +=" data-board-no="+data[i].board_no;
-						html +=" data-user-no="+data[i].user_no+">"+data[i].user_name;
-						html +=data[i].reply_wdate;
+						html +=" data-user-no="+data[i].user_no+">"+data[i].user_name+"("+age+"세)";
+						html +=data[i].reply_wdate.substring(0,16);
 						if(id==data[i].user_no){
 							html +='<button class="modify">수정</button><button class="del">삭제</button></td></tr>';
 						}
@@ -165,10 +166,10 @@
 <table border="1" align="center">
 	<tr>
 		<td>${detail.board_title }</td>
-		<td>${detail.board_wdate }</td>
+		<td>${detail.board_wdate.substring(0, 16) }</td>
 	</tr>
 	<tr>
-		<td colspan="2">${detail.user_id }</td>
+		<td colspan="2">${detail.user_id }(${year-detail.user_birth.substring(0,4)+1}세)</td>
 	</tr>
 	<tr>
 		<td colspan="2">${detail.board_content}</td>

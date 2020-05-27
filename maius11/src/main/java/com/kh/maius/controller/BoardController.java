@@ -1,5 +1,6 @@
 package com.kh.maius.controller;
 
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -39,8 +40,10 @@ public class BoardController {
 	@GetMapping("/list")
 	public String list(Model model,HttpServletRequest request) {
 		
+		Calendar cal = Calendar.getInstance();
 		
-//		model.addAttribute("list", boardDao.getList());
+		int year = cal.get(cal.YEAR);
+		model.addAttribute("year", year);
 		
 		//페이지 크기
 		int pagesize = 10;
@@ -79,8 +82,6 @@ public class BoardController {
 		param.put("start", start);
 		param.put("finish", finish);
 		
-	
-		
 		model.addAttribute("list", boardDao.getList(param));
 		
 		request.setAttribute("pno", pno);
@@ -89,13 +90,6 @@ public class BoardController {
 		request.setAttribute("navsize", navsize);
 		
 		return "board/list";
-	
-	
-		
-		
-		
-		
-		
 	
 	
 	}
