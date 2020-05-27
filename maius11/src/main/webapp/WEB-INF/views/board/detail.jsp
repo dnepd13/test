@@ -118,7 +118,7 @@
 		});
 		$(document).on("click", ".del", function(){
 			if(confirm("정말 삭제하시겠습니까?")==true){
-				var td = $(this).parent().prev();
+				var td = $(this).parent();
 				var reply_no = td.data("reply-no");
 				var board_no = td.data("board-no");
 				console.log(reply_no);
