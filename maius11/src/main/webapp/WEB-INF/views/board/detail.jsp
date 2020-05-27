@@ -58,7 +58,7 @@
 						html +=" data-user-no="+data[i].user_no+">"+data[i].user_name;
 						html +=data[i].reply_wdate;
 						if(id==data[i].user_no){
-							html +='<td><button class="modify">수정</button><button class="del">삭제</button></td></td></tr>';
+							html +='<button class="modify">수정</button><button class="del">삭제</button></td></tr>';
 						}
 						else{
 							html +="</td></tr>"; 
@@ -150,13 +150,19 @@
 		}
 	}
 	
+	function delCheck(){
+		if(confirm("정말 삭제하시겠습니까?")==true){
+			return true;
+		}
+		return false;
+	}
 	
 </script>
 
 </head>
 <body>
 <h2>게시글 상세보기</h2>
-<table border="1">
+<table border="1" align="center">
 	<tr>
 		<td>${detail.board_title }</td>
 		<td>${detail.board_wdate }</td>
@@ -172,12 +178,12 @@
 	</tr>
 	<tr>
 		<td colspan="2">
-			<button>글쓰기버튼</button>
+			<a href="${pageContext.request.contextPath}/board/regist"><button>글쓰기버튼</button></a>
 			<c:if test="${detail.user_no==user_no}">
-				<button>수정버튼</button>
-				<button>삭제버튼 </button>
+				<a href="${pageContext.request.contextPath}/board/edit?board_no=${detail.board_no }"><button>수정버튼</button></a>
+				<a onclick="return delCheck();" href="${pageContext.request.contextPath}/board/delete?board_no=${detail.board_no}"><button>삭제버튼 </button></a>
 			</c:if>
-			<button> 목록버튼</button>
+			<a href="${pageContext.request.contextPath}/board/list"><button> 목록버튼</button></a>
 		 </td>
 	</tr>
 	<tr>
@@ -185,7 +191,7 @@
 		<td><button id="insertReply">댓글등록</button></td>
 	</tr>
 </table>
-	<div id="commentList"></div>
+	<div id="commentList" align="center"></div>
 </body>
 
 </html>
