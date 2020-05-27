@@ -76,7 +76,7 @@
 					${list.board_readcount} 
 				</td>
 				<td>
-					${list.user_name}
+					${list.user_name}(${year-list.user_birth.substring(0,4)+1}세)
 				</td>
 				<td>
 					${list.board_wdate.substring(0,16)}
@@ -87,7 +87,7 @@
 	
 	<p class="bbttnn">
 		<button type="button" class="clickbtn">
-			<a href=${pageContext.request.contextPath}/board/regist  class="aaa"><i class="fas fa-pencil-alt"></i>글쓰기</a>
+			<a href="${pageContext.request.contextPath}/board/regist"  class="aaa"><i class="fas fa-pencil-alt"></i>글쓰기</a>
 		</button>
 	</p>
 	  <div class="container nav" style="text-align: center;">

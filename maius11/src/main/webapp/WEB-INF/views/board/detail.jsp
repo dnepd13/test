@@ -45,18 +45,19 @@
 				board_no:"${detail.board_no}"
 			},
 			success:function(data){
-				console.log(data);
-				console.log(data.length);
 				var html ="";
 				var cCnt=data.length;
 				var id = "${user_no}";
 				if(data.length > 0){
 					for(var i=0; i<data.length; i++){
+						var age = "${year}"-data[i].user_birth.substring(0,4)+1;
 						html +="<div>";
 						html +="<div><table class=table table-bordered><tr><td data-reply-no="+data[i].reply_no;
 						html +=" data-board-no="+data[i].board_no;
-						html +=" data-user-no="+data[i].user_no+">"+"<span class=space>"+data[i].user_name+"</span>";
-						html += "<span class=space>"+data[i].reply_wdate.substring(0,16)+"</span>";
+
+						html +=" data-user-no="+data[i].user_no+">"+"<span class=space>"+data[i].user_name+"("+age+"세)</span>";
+						html +="<span class=space>"+data[i].reply_wdate.substring(0,16)+"</span>";
+
 						if(id==data[i].user_no){
 							html +='<button class="modify">수정</button><button class="del">삭제</button></td></tr>';
 						}
@@ -65,9 +66,6 @@
 						}
 						html +="<tr><td>"+data[i].reply_content;
 						html +="</td></tr></table></div></div>";
-						console.log(id);
-						console.log(data[i].user_no);
-						console.log(id==data[i].user_no);
 					}
 				}
 				$("#reply_count").html(cCnt);
@@ -78,7 +76,6 @@
 	}
 	$(function(){
 		$(document).on("click", ".modify",function(){
-			console.log("ddd");
 			if($(this).text()=="수정"){
 				var cell = $(this).parent().parent().next().children();
 				var text = cell.text();
@@ -87,7 +84,7 @@
 				$(this).text("완료");
 			}
 			else{
-				var td = $(this).parent().prev();
+				var td = $(this).parent();
 				var cell = $(this).parent().parent().next().children();
 				var text = cell.children().val();
 				cell.empty();
@@ -117,10 +114,9 @@
 		});
 		$(document).on("click", ".del", function(){
 			if(confirm("정말 삭제하시겠습니까?")==true){
-				var td = $(this).parent().prev();
+				var td = $(this).parent();
 				var reply_no = td.data("reply-no");
 				var board_no = td.data("board-no");
-				console.log(reply_no);
 				
 				$.ajax({
 					url:"/maius/board/replydel",
@@ -258,9 +254,10 @@
 				<span class="item4" style="text-align: right">${detail.board_wdate.substring(0,16) }</span>
 			</div>
 		</td>
+
 	</tr>
 	<tr>
-		<td colspan="2">${detail.user_id }</td>
+		<td colspan="2">${detail.user_id }(${year-detail.user_birth.substring(0,4)+1}세)</td>
 	</tr>
 	<tr>
 		<td colspan="2" height="200">${detail.board_content}</td>

@@ -23,6 +23,29 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 	
+	
+	
+	
+		<!-- 
+		로그인 필터
+	 -->
+	<filter>
+		<filter-name>loginFilter</filter-name>
+		<filter-class>com.kh.maius.filter.LoginFilter</filter-class>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>loginFilter</filter-name>
+			<url-pattern>/board/regist</url-pattern>
+			<url-pattern>/board/detail</url-pattern>
+			<url-pattern>/board/edit</url-pattern>
+			<url-pattern>/board/list</url-pattern>
+			<url-pattern>/mypage/list</url-pattern>
+			<url-pattern>/mypage/edit</url-pattern>
+			<url-pattern>/mypage/pw</url-pattern>
+	</filter-mapping>
+	
+	
 	<!-- The definition of the Root Spring Container shared by all Servlets and Filters -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>

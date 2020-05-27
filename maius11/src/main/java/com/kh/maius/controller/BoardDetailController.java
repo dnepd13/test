@@ -1,6 +1,7 @@
 package com.kh.maius.controller;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.HashSet;
@@ -50,6 +51,11 @@ public class BoardDetailController {
 			HttpSession session) {
 		BoardUserVO vo = detailDao.detail(board_no);/////조인다시!!
 		
+		Calendar cal = Calendar.getInstance();
+		
+		int year = cal.get(cal.YEAR);
+		model.addAttribute("year", year);
+		
 		//추가 : 이미 읽은 글은 조회수 증가를 방지
 		//[1] 세션에 있는 저장소를 꺼내고 없으면 신규 생성한다
 		@SuppressWarnings("unchecked")
@@ -67,7 +73,7 @@ public class BoardDetailController {
 		
 		
 		if(user_id != null) {
-//			System.out.println(memory);
+//		System.out.println(memory);
 			boolean isMine = user_id.equals(vo.getUser_id()); //사용자아이디 == 작성자아이디 라고 물어보는것
 			boolean isFirst = memory.add(board_no); //배열에 조회한 글번호를 넣어서 처음 들어가면 true, 재조회라면 false임 
 
@@ -133,6 +139,7 @@ public class BoardDetailController {
 				hm.put("reply_wdate", reply.get(i).getReply_wdate());
 				hm.put("user_no", reply.get(i).getUser_no());
 				hm.put("board_no", reply.get(i).getBoard_no());
+				hm.put("user_birth", reply.get(i).getUser_birth());
 				hmlist.add(hm);
 			}
 		}

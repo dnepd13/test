@@ -21,14 +21,33 @@ function check() {
 			return false;
 		}
 		
+		if(!RegExp(/^[a-zA-Z0-9]{4,20}$/).test($("#id").val())){
+			alert("비밀번호는 대문자 및 소문자, 숫자로 구성가능하며 4~20자리를 입력해야 합니다");
+			$("#id").focus();
+			return false;
+		}
+		
 		if(!pw){
 			window.alert("비밀번호를 입력해주세요!");
 			$("#pw").focus();
 			return false;
 		}
 		
+		if(!RegExp(/^[a-zA-Z0-9]{4,12}$/).test($("#pw").val())){
+			alert("비밀번호는 대문자 및 소문자, 숫자로 구성가능하며 4~12자리를 입력해야 합니다");
+			$("#pw").focus();
+			return false;
+		}
+		
+		
 		if(!name){
 			window.alert("이름을 입력해주세요!");
+			$("#name").focus();
+			return false;
+		}
+		
+		if(!RegExp(/^[가-힣]{2,7}$/).test($("#name").val())){
+			alert("이름은 한글 2~7자로 입력해야합니다");
 			$("#name").focus();
 			return false;
 		}
@@ -107,16 +126,18 @@ return true;
 	<div align="center">
 		<h1 align="center" style="margin-top:30px; margin-bottom: 25px;">SIGN UP</h1>
 	</div>
+
 	
 	<div class="cont">
 	<div class="flex-wrap">
 		<h6 class="item1">아이디</h6>
 		<input class="item2" id="id" type="text" name="user_id" placeholder="id" >
+
 	</div>
 	
 	<div class="flex-wrap">
 		<h6 class="item1">비밀번호</h6>
-		<input class="item2" type="text" name="user_pw" placeholder="pw"  id="pw">
+		<input class="item2" type="password" name="user_pw" placeholder="pw"  id="pw">
 	</div>
 	<div class="flex-wrap">
 		<h6 class="item1">이름</h6>

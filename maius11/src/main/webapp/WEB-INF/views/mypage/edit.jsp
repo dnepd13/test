@@ -25,7 +25,7 @@
 			return false;
 		}
 		if(!RegExp(/^(19[0-9][0-9]|20\d{2})-(0[0-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/).test($("#birth").val())){
-			alert("예)2020-02-02형식으로 입력해주세요");
+			alert("예)2020-02-02 형식으로 입력해주세요");
 			$("#birth").focus();
 			return false;
 		}
@@ -33,7 +33,7 @@
 	}
 	
 	function del(){
-		if(confirm("정말 삭제하시겠습니까?")==true){
+		if(confirm("정말 탈퇴하시겠습니까?")==true){
 			return true;
 		}
 		else{

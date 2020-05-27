@@ -58,8 +58,9 @@
 			<input class="in" type="text" name="user_id" placeholder="아이디(ID)" >
 		</div>
 		<div>
-			<input class="in in2" type="text" name="user_pw" placeholder="비밀번호(PW)" >
+			<input class="in in2" type="password" name="user_pw" placeholder="비밀번호(PW)" >
 		</div>
+
 		<c:if test="${param.error != null}">
 			<h6 style="color: red;">잘못된 아이디이거나 비밀번호입니다!</h6>
 		</c:if>
