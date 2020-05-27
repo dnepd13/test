@@ -1,12 +1,14 @@
 package com.kh.maius.repository;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.kh.maius.entity.BoardDto;
+import com.kh.maius.entity.BoardUserVO;
 
 
 @Repository
@@ -16,7 +18,7 @@ public class BoardDaoImpl implements BoardDao{
 	private SqlSession sqlSession;
 	
 	@Override
-	public List<BoardDto> getList() {
+	public List<BoardUserVO> getList() {
 		return sqlSession.selectList("board.list");
 	}
 
@@ -35,6 +37,29 @@ public class BoardDaoImpl implements BoardDao{
 	@Override
 	public void edit(BoardDto boardDto) {
 		sqlSession.update("board.edit", boardDto);
+	}
+
+	@Override
+	public void delete(int board_no) {
+		sqlSession.delete("board.delete", board_no);
+		
+	}
+
+	@Override
+	public int boardCount() {
+		return sqlSession.selectOne("board.boardCount");
+	}
+
+	@Override
+	public List<BoardUserVO> getList(Map<String, Integer> param) {
+		
+		return sqlSession.selectList("board.list", param);
+	}
+
+	@Override
+	public void readCount(int board_no) {
+		sqlSession.update("board.readCount", board_no);		
+		
 	}
 	
 	

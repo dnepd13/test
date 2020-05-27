@@ -45,16 +45,16 @@ public class UsersController {
 	//로그인
 	@PostMapping("/login")
 	public String login(@ModelAttribute UsersDto userdDto, HttpSession session,  Model model) {
-		//입력된 아이디로 db에서 정보를 가져온다
+		//입력된 아이디, 비밀번호에 맞는 정보를 가져온다
 		//맞으면 게시판목록으로
-		//다르면 알림창 띄우기
+		//다르면 메세지 띄우기
 		UsersDto find = usersDao.login(userdDto);
 		System.out.println(find);
 		if(find == null) {			//맞는 정보가 없다
 			return "redirect:/?error=1";
 		}
 		else {
-			session.setAttribute("user_id", find.getUser_id()); //세션에 찾아온 정보의 id를 저장함, 로그인 성공
+			session.setAttribute("user_name", find.getUser_name()); //세션에 찾아온 정보의 이름, 번호를 저장함, 로그인 성공
 			session.setAttribute("user_no", find.getUser_no());
 			return "redirect:/board/list";
 		}
@@ -63,6 +63,11 @@ public class UsersController {
 	@GetMapping("/logout")
 	public String logout(HttpSession session) {
 		session.removeAttribute("user_no");
+
+
+
+		session.removeAttribute("user_name");
+
 		return "redirect:/";						//홈으로 이동
 	}
 }

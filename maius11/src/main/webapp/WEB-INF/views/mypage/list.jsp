@@ -5,6 +5,7 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
+<jsp:include page="/WEB-INF/views/template/header.jsp"></jsp:include>
 <style>
 	h1{
 		padding-left: 30%;
@@ -21,6 +22,9 @@
 </style>
 </head>
 <body>
+<div>	<!-- header와 경계선 -->
+	<p style="background-color: rgb(224, 224, 224); padding: 10px; padding-left:50px; font-weight: bold; font-size: 1.1rem;">> 마이페이지</p>
+</div> 
 <h1>회원정보</h1>
 	<hr>
 		<div class="can">

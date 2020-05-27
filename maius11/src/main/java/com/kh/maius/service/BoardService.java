@@ -29,6 +29,9 @@ public class BoardService {
 	}
 	
 	
-	
+
+	public void readCount(int board_no) {
+		boardDao.readCount(board_no);	//조회수 증가
+	}
 	
 }
