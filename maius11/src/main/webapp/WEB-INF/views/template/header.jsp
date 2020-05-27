@@ -30,7 +30,19 @@
         <a class="nav-link" href="${pageContext.request.contextPath}/mypage/list">마이페이지</a>
       </li>
       <li class="nav-item" style="margin-right: 30px;">
-        <a class="nav-link" href="${pageContext.request.contextPath}/logout">로그아웃</a>
+      
+      
+      <c:choose>
+      <c:when test="${user_name==null}">
+       <a class="nav-link" href="${pageContext.request.contextPath}">로그인</a>
+      </c:when>
+      <c:otherwise>
+      
+      <a class="nav-link" href="${pageContext.request.contextPath}/logout">로그아웃</a>
+      </c:otherwise>
+      
+      </c:choose>
+
       </li>
     </ul>
   </div>
