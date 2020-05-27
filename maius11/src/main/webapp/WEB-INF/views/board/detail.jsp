@@ -88,7 +88,7 @@
 				$(this).text("완료");
 			}
 			else{
-				var td = $(this).parent().prev();
+				var td = $(this).parent();
 				var cell = $(this).parent().parent().next().children();
 				var text = cell.children().val();
 				cell.empty();
