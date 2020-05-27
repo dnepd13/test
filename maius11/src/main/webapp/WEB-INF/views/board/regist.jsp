@@ -37,7 +37,7 @@
 </style>
 
 <div>	<!-- header와 경계선 -->
-	<p style="background-color: rgb(224, 224, 224); padding: 10px; padding-left:50px; font-weight: bold; font-size: 1.1rem;">> 자유게시판</p>
+	<p style="background-color: rgb(224, 224, 224); padding: 7px; padding-left:50px; font-weight: bold; font-size: 1.1rem;">> 자유게시판</p>
 </div> 
 
 <div class="tab" >    

@@ -8,6 +8,31 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
+<style>
+	.page-item.active .page-link{
+		background-color: #3498DB;
+	}
+	.page-link{
+		background-color: #F4F4F4;
+		border: none;
+		color: black;
+		font-weight: normal;
+		border-radius: 0.28rem;
+		margin-left: 5px;
+		margin-right: 5px;
+	}
+	.pagination{
+		display: -ms-flexbox;
+		display: inline-flex;
+		margin-top:-50px;
+		 list-style: none;
+		 border: none;
+		 font-family: 'Noto Sans';
+		 font-weight: 400;
+		 font-size: 12px;
+	}
+</style>
+
 <c:set var="board_no" value="${param.board_no}"></c:set> 
 <c:set var="board_category" value="${param.board_category}"></c:set>
 <c:set var="type" value="${param.type}"></c:set>
