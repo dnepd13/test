@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="/WEB-INF/views/template/header.jsp"></jsp:include>
 
-
+<html>
 <style>
 	*{
    	 	box-sizing: border-box;
@@ -30,6 +30,8 @@
 		margin-right:10px;
 		margin-top: 40px;
 		height: 60%;
+		position: relative;
+		padding-bottom: 15px;
 	}
 	.bbttnn{
 		text-align:right; 
@@ -37,7 +39,7 @@
 	}
 	.clickbtn{
 		border:none;
-		font-size: 13px;
+		font-size: 14px;
 		background-color: rgb(94, 94, 94);
 		border-radius: 0.25rem;
 		color: white;		
@@ -45,13 +47,13 @@
 		text-decoration: none;
 	}
 </style>
-
+<body>
 <div>	<!-- header와 경계선 -->
 	<p style="background-color: rgb(224, 224, 224); padding: 7px; padding-left:50px; font-weight: bold; font-size: 1.1rem;">> 자유게시판</p>
 </div> 
 
 <div class="cont">
-	<table class="table table-hover border="1" align="center"; style="width: 80%; text-align: center; font-size: 13px;">
+	<table class="table table-hover border="1" align="center"; style="width: 80%; text-align: center; font-size: 14px;">
 		<thead>
 			<tr>
 				<th>No.</th>						
@@ -101,3 +103,5 @@
 
 </div>
 <jsp:include page="/WEB-INF/views/template/footer.jsp"></jsp:include>
+</body>
+</html>
