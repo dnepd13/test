@@ -5,17 +5,17 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <style>
-	li{
+	.nav-item{
 		color: black;
 		font-weight: bold;
 		font-size:17px;
 		margin: 10px;
 	}
-
 	.nav-item:active a{
 	color: black;
 	}
 </style>
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a href="${pageContext.request.contextPath}/board/list" style="margin-left: 30px; margin-bottom: 10px;">
  	 <img src="${pageContext.request.contextPath}/resources/image/logo.jpg" width="150px" height="60px">

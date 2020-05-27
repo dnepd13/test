@@ -31,28 +31,101 @@
 		return true;
 	}
 </script>
+<style>
+		.info{
+ 		margin-top:130px; 
+		margin-left: 30%;
+		margin-right: 30%;
+		padding: 20px;
+	}
+	.flex-wrap{
+            display: flex;
+            flex-direction: row;           /* 줄 안에 배치 */
+            padding: 10px;
+        }
+        @media screen and (max-width:640px){
+            .flex-wrap{
+             flex-direction: column;   /* 칸 안에 배치 */    
+             }
+        }
+        .item1{
+            flex-grow: 9;                   /* 줄에서 남은 공간을 차지하는 비율 */
+            height: 15px;                 /* 1개만 높이가 있어도 나머지가 같은 높이로 설정된다. */
+            margin-left: 40px;
+            font-weight: bold;
+            vertical-align: middle;
+        }
+        .item2{
+            flex-grow: 1;
+            margin-right: 60px;
+        }
+	.clickbtn2{
+		border:none;
+		font-size: 13px;
+		background-color: #3498DB;
+		border-radius: 0.25rem;
+		color: white;		
+		padding: 0.375rem 0.75rem;
+		text-decoration: none;
+		width: 120px;
+		margin-top: 15px;
+	}
+	.in{
+		width: 180px;
+		font-size: 13px;
+		border-radius: 0.25rem;
+		border:1.2px solid rgb(224, 224, 224);
+		padding: 0.375rem 0.75rem;
+		text-align: center;
+		margin-right: 50px;
+		box-shadow: none;
+	}
+</style>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-<h1>비밀번호 변경</h1>
-<form action="pw" method="post" onsubmit="return check();">
-<table border="1">
-	<tr>
-		<th>현재 비밀번호</th>
-		<td><input type="password" name="user_pw" id="now"></td>
-	</tr>
-	<tr>
-		<th>새 비밀번호</th>
-		<td><input type="password" name="new_user_pw" id="new"></td>
+<div>	<!-- header와 경계선 -->
+	<p style="background-color: rgb(224, 224, 224); padding: 7px; padding-left:50px; font-weight: bold; font-size: 1.1rem;">> 마이페이지</p>
+</div> 
 
-	</tr>
-</table>
-<input type="hidden" name="user_no" value="${user_no }">
-<c:if test="${param.error != null }">
-<div><h4>비밀번호가 틀렸습니다</h4></div>
-</c:if>
-<input type="submit" value="변경하기">
+<div class="info">
+	<h5 style="padding-left: 20px; font-weight: bold;">비밀번호 변경</h5>
+	
+<form action="pw" method="post" onsubmit="return check();">
+<hr>
+		<div class="flex-wrap">
+			<h6 class="item1">현재 비밀번호</h6>
+			<span class="item3">
+				<input class="in" type="password" name="user_pw" id="now">
+			</span>
+		</div>
+	<hr>
+		<div class="flex-wrap">
+			<h6 class="item1">새 비밀번호</h6>
+			<span class="item3">
+				<input class="in" type="password" name="new_user_pw" id="new">
+			</span>
+		</div>
+	<hr>
+	
+	<c:if test="${param.error != null }">
+		<div><h4>비밀번호가 틀렸습니다</h4></div>
+	</c:if>
+		
+		<input type="hidden" name="user_no" value="${user_no }">
+			
+		<div style="text-align: center;">
+			<input class="clickbtn2" type="submit" value="변경하기">
+			<input class="clickbtn2" type="button" value="뒤로가기" style="background-color:  rgb(94, 94, 94);" onclick="return back();">
+		</div>		
 </form>
+</div>
 </body>
+<script>
+	function back() {
+		window.history.go(-1);
+	}
+</script>
+<jsp:include page="/WEB-INF/views/template/footer.jsp"></jsp:include>
 </html>

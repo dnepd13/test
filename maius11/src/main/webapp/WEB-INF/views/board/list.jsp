@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="/WEB-INF/views/template/header.jsp"></jsp:include>
 
+
 <style>
 	*{
    	 	box-sizing: border-box;
@@ -27,9 +28,8 @@
 	.cont{
 		margin-left: 10px;
 		margin-right:10px;
-		margin-top: 80px;
-		text-align: center;
-		height: 460px;
+		margin-top: 40px;
+		height: 60%;
 	}
 	.bbttnn{
 		text-align:right; 
@@ -44,15 +44,14 @@
 		padding: 0.375rem 0.75rem;
 		text-decoration: none;
 	}
-	
 </style>
 
 <div>	<!-- header와 경계선 -->
-	<p style="background-color: rgb(224, 224, 224); padding: 10px; padding-left:50px; font-weight: bold; font-size: 1.1rem;">> 자유게시판</p>
+	<p style="background-color: rgb(224, 224, 224); padding: 7px; padding-left:50px; font-weight: bold; font-size: 1.1rem;">> 자유게시판</p>
 </div> 
 
 <div class="cont">
-	<table class="table table-hover border="1" align="center"; style="width: 80%; text-align: center;">
+	<table class="table table-hover border="1" align="center"; style="width: 80%; text-align: center; font-size: 13px;">
 		<thead>
 			<tr>
 				<th>No.</th>						
@@ -69,7 +68,7 @@
 				</td>
 				<td style="text-align: left">
 					<a href=${pageContext.request.contextPath}/board/detail?board_no=${list.board_no} class="title">${list.board_title }</a> 
-					[${list.board_replycount }] 
+					[${list.board_replycount}] 
 				</td>
 				<td>
 					${list.board_readcount} 
@@ -98,12 +97,7 @@
     			<jsp:param name="pagesize" value="${pagesize}" />
     			<jsp:param name="board_category" value="${board_category}"/>
     		</jsp:include>
-    	
-	
-	
+   </div>
+
 </div>
-	
 <jsp:include page="/WEB-INF/views/template/footer.jsp"></jsp:include>
-</div>
-
-
