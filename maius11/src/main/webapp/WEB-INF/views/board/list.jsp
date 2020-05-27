@@ -18,7 +18,7 @@
 				${list.board_no} 
 			</td>
 			<td style="text-align: left">
-				<a href=${pageContext.request.contextPath}/board/content?board_no=${list.board_no}>${list.board_title }</a> 
+				<a href=${pageContext.request.contextPath}/board/detail?board_no=${list.board_no}>${list.board_title }</a> 
 				[${list.board_replycount }] 
 			</td>
 			<td>

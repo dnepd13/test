@@ -11,18 +11,130 @@
 <script type="text/javascript">
 	$(function(){
 		$("#insertReply").on("click", function(){
-			$.ajax({
-				url:"/maius/board/replyinsert",
-				data:{
-					board_no:"${detail.board_no}",
-					reply_content:$("#content").val()
-				},
-				success:function(data){
-					if(data=="success"){
-						alert("댓글이 정삭적으로 등록되었습니다");
+			if($("#content").val() !=""){
+				$.ajax({
+					url:"/maius/board/replyinsert",
+					data:{
+						board_no:"${detail.board_no}",
+						reply_content:$("#content").val()
+					},
+					success:function(data){
+						if(data=="success"){
+							alert("댓글이 정삭적으로 등록되었습니다");
+							$("#content").val("");
+							getreplyList();
+						}
+					}
+				})
+			}
+			else{
+				alert("댓글을 입력하세요");
+				$("#content").focus();
+			}
+		});
+		
+	});
+	
+	onload = getreplyList();
+	
+	function getreplyList(){
+		$.ajax({
+			url:"/maius/board/replylist",
+			data:{
+				board_no:"${detail.board_no}"
+			},
+			success:function(data){
+				console.log(data);
+				console.log(data.length);
+				var html ="";
+				var cCnt=data.length;
+				var id = "${user_no}";
+				if(data.length > 0){
+					for(var i=0; i<data.length; i++){
+						html +="<div>";
+						html +="<div><table><tr><td data-reply-no="+data[i].reply_no;
+						html +=" data-board-no="+data[i].board_no;
+						html +=" data-user-no="+data[i].user_no+">"+data[i].user_name;
+						html +=data[i].reply_wdate;
+						if(id==data[i].user_no){
+							html +='<td><button class="modify">수정</button><button class="del">삭제</button></td></td></tr>';
+						}
+						else{
+							html +="</td></tr>"; 
+						}
+						html +="<tr><td>"+data[i].reply_content;
+						html +="</td></tr></table></div></div>";
+						console.log(id);
+						console.log(data[i].user_no);
+						console.log(id==data[i].user_no);
 					}
 				}
-			})
+				$("#reply_count").html(cCnt);
+				$("#commentList").html(html);
+			}
+		});
+		
+	}
+	$(function(){
+		$(document).on("click", ".modify",function(){
+			console.log("ddd");
+			if($(this).text()=="수정"){
+				var cell = $(this).parent().parent().next().children();
+				var text = cell.text();
+				cell.empty();
+				$("<input>").val(text).appendTo(cell);
+				$(this).text("완료");
+			}
+			else{
+				var td = $(this).parent().prev();
+				var cell = $(this).parent().parent().next().children();
+				var text = cell.children().val();
+				cell.empty();
+				cell.text(text);
+				$(this).text("수정");
+				var content = cell.text();
+				var no = td.data("reply-no");
+				var boardno = td.data("board-no");
+				var userno = td.data("user-no");
+				
+				$.ajax({
+					url:"/maius/board/replyedit",
+					data:{
+						"reply_no": no,
+						"board_no": boardno,
+						"user_no" : userno,
+						"reply_content": content
+					},
+					success:function(data){
+						if(data=="success"){
+							alert("수정이 완료됐습니다");
+						}
+					}
+				});
+				
+			}
+		});
+		$(document).on("click", ".del", function(){
+			if(confirm("정말 삭제하시겠습니까?")==true){
+				var td = $(this).parent().prev();
+				var reply_no = td.data("reply-no");
+				
+				console.log(reply_no);
+				
+				$.ajax({
+					url:"/maius/board/replydel",
+					data:{
+						"reply_no":reply_no						
+					},
+					success:function(data){
+						if(data=="success"){
+							getreplyList();
+							alert("댓글이 삭제됐습니다");
+						}
+					}
+				});
+			}
+			
 		});
 	});
 </script>
@@ -42,29 +154,24 @@
 		<td colspan="2">${detail.board_content}</td>
 	</tr>
 	<tr>
-		<td colspan="2">댓글수(${detail.board_replycount}) / 조회수(${detail.board_readcount})</td>
-	</tr>
-	<c:forEach var="list" items="${reply }">
-	
-	<tr>
-		<td colspan="2">${list.user_no} 및 ${list.reply_wdate}</td>
-	</tr>
-	<tr>
-		<td colspan="2">${list.reply_content } 및 수정버튼</td>
-	</tr>
-	</c:forEach>
-	<tr>
-		<td><input type="text" name="reply_content" id="content">
-		<td><button id="insertReply">댓글등록</button></td>
+		<td colspan="2">댓글수(<span id="reply_count"></span>) / 조회수(${detail.board_readcount})</td>
 	</tr>
 	<tr>
 		<td colspan="2">
-			<button>글쓰기버튼 </button>
-			<button>수정버튼</button>
-			<button>삭제버튼 </button>
+			<button>글쓰기버튼</button>
+			<c:if test="${detail.user_no==user_no}">
+				<button>수정버튼</button>
+				<button>삭제버튼 </button>
+			</c:if>
 			<button> 목록버튼</button>
 		 </td>
 	</tr>
+	<tr>
+		<td><input type="text" name="reply_content" id="content"></td>
+		<td><button id="insertReply">댓글등록</button></td>
+	</tr>
 </table>
+	<div id="commentList"></div>
 </body>
+
 </html>

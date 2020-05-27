@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.kh.maius.entity.BoardReplyDto;
+import com.kh.maius.entity.ReplyUserVO;
 
 @Repository
 public class BoardReplyDao {
@@ -18,8 +19,16 @@ public class BoardReplyDao {
 		sqlSession.insert("boardreply.insert", replydto);
 	}
 	
-	public List<BoardReplyDto> replyList(int no) {
-		 List<BoardReplyDto> list = sqlSession.selectList("boardreply.select",no);
+	public List<ReplyUserVO> replyList(int no) {
+		 List<ReplyUserVO> list = sqlSession.selectList("boardreply.select",no);
 		 return list;
+	}
+	
+	public void replyUpdate(ReplyUserVO vo) {
+		sqlSession.update("boardreply.edit", vo);
+	}
+	
+	public void replyDelete(ReplyUserVO vo) {
+		sqlSession.delete("boardreply.del", vo);
 	}
 }
