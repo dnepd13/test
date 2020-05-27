@@ -43,11 +43,6 @@
 			<url-pattern>/mypage/list</url-pattern>
 			<url-pattern>/mypage/edit</url-pattern>
 			<url-pattern>/mypage/pw</url-pattern>
-			
-
-
-
-
 	</filter-mapping>
 	
 	

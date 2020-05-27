@@ -45,8 +45,6 @@
 				board_no:"${detail.board_no}"
 			},
 			success:function(data){
-				console.log(data);
-				console.log(data.length);
 				var html ="";
 				var cCnt=data.length;
 				var id = "${user_no}";
@@ -66,9 +64,6 @@
 						}
 						html +="<tr><td>"+data[i].reply_content;
 						html +="</td></tr></table></div></div>";
-						console.log(id);
-						console.log(data[i].user_no);
-						console.log(id==data[i].user_no);
 					}
 				}
 				$("#reply_count").html(cCnt);
@@ -79,7 +74,6 @@
 	}
 	$(function(){
 		$(document).on("click", ".modify",function(){
-			console.log("ddd");
 			if($(this).text()=="수정"){
 				var cell = $(this).parent().parent().next().children();
 				var text = cell.text();
@@ -121,7 +115,6 @@
 				var td = $(this).parent();
 				var reply_no = td.data("reply-no");
 				var board_no = td.data("board-no");
-				console.log(reply_no);
 				
 				$.ajax({
 					url:"/maius/board/replydel",
