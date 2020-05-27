@@ -114,7 +114,7 @@ return true;
 			<span class="sign-tag">아이디</span> <span><input id="id" type="text" name="user_id" placeholder="id" ></span>
 		</p>
 		<p class="sign-item">
-			<span class="sign-tag">암호</span> <span><input type="text" name="user_pw" placeholder="pw"  id="pw"></span>
+			<span class="sign-tag">암호</span> <span><input type="password" name="user_pw" placeholder="pw"  id="pw"></span>
 		</p>
 		
 		<p class="sign-item">
