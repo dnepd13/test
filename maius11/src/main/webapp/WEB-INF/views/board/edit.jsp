@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <jsp:include page="/WEB-INF/views/template/header.jsp"></jsp:include>
+<html>
 <style>
 	#copyright{
 		font-family: 'Noto Sans';
@@ -23,7 +24,7 @@
 		padding: 0.375rem 0.75rem;
 		text-decoration: none;
 	}
-	.tab{
+	.cont{
 		padding-top: 20px;
 		padding-left: 150px;
 		padding-right: 150px;
@@ -35,12 +36,12 @@
 	line-height: 1.5;
 	}
 </style>
-
+<body>
 <div>	<!-- header와 경계선 -->
 	<p style="background-color: rgb(224, 224, 224); padding: 10px; padding-left:50px; font-weight: bold; font-size: 1.1rem;">> 자유게시판</p>
 </div> 
 
-<div class="tab" >    
+<div class="cont" >    
 	<h3>수정하기</h3><span id="copyright">저작권 등 다른 사람의 권리를 침해하거나 명예를 훼손하는 게시글은 이용약관 및 관련법률에 의해 제재를 받으실 수 있습니다.</span><br><br>
 
 	<form action="edit" method="post"  >
@@ -50,7 +51,7 @@
 		<tr align="center">
 			<th>제목</th>
 			<td>
-				<input type="text" name="board_title"   value="${boardDto.board_title }"   required style="text-align:center; width:100%; height:30px; ">
+				<input type="text" name="board_title"   value="${boardDto.board_title }"   required style="width:100%; height:30px; ">
 			</td>
 		</tr>
 						
@@ -73,3 +74,5 @@
 	</form>
 </div>
 <jsp:include page="/WEB-INF/views/template/footer.jsp"></jsp:include>
+</body>
+</html>

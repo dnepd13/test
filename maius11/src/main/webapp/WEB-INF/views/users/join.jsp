@@ -3,6 +3,7 @@
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <jsp:include page="/WEB-INF/views/template/header.jsp"></jsp:include>
+<html>
 <script>
 //아이디 중복&형식 검사 
 function check() {
@@ -68,69 +69,95 @@ return true;
    	 	box-sizing: border-box;
 		text-decoration: none;
 	}
-	.sign{
-		background-color: rgb(224, 224, 224);
-		margin-left: 38%;
-		margin-right: 38%;
-		padding-top: 30px;
-		padding-bottom: 20px;
-		border-radius: 2rem;
-	}
 	.clickbtn{
 		border:none;
 		font-size: 13px;
 		background-color: rgb(94, 94, 94);
 		border-radius: 0.25rem;
 		color: white;		
-		padding: 0.375rem 0.75rem;
+		padding: 0.575rem 0.9rem;
 		text-decoration: none;
-		width: 200px;
+		width: 220px;
+		margin-top: 30px;
 	}
-	.sign-item{
-/* 		background-color:blue; */
-		margin-top: 23px;
-		margin-bottom:23px;
-	}
-	.sign-item > *{
-		
-		margin-right: 5px;
-	}
-	.sign-tag{
-		margin-left: 15%;
-	}
-	
+	.flex-wrap{
+            display: flex;
+            flex-direction: row;           /* 줄 안에 배치 */
+             margin-bottom: 25px;
+             margin-top: 25px;
+        }
+        @media screen and (max-width:640px){
+            .flex-wrap{
+             flex-direction: column;   /* 칸 안에 배치 */    
+             }
+        }
+        .item1{
+            flex-grow: 9;                   /* 줄에서 남은 공간을 차지하는 비율 */
+            height: 30px;                 /* 1개만 높이가 있어도 나머지가 같은 높이로 설정된다. */
+            margin-left: 40px;
+        }
+        .item2{
+            flex-grow: 1;
+            width: 180px;
+			font-size: 15px;
+			border-radius: 0.25rem;
+			border:1.2px solid rgb(224, 224, 224);
+			padding: 0.25rem 0.55rem;
+			text-align: center;
+			margin-right: 30px;
+        }
+        .cont{
+        	background-color: rgb(224, 224, 224); 
+ 			margin-left: 37%; 
+ 			margin-right: 37%; 
+ 			padding-top: 20px; 
+ 			border-radius:2rem;
+ 			min-height: 53%;
+ 			margin-bottom: 80px;
+        }
+    
 </style>
-
+<body>
 <div>	<!-- header와 경계선 -->
 	<p style="background-color: rgb(224, 224, 224); padding: 10px; padding-left:50px; font-weight: bold; font-size: 1.1rem;">> 회원가입</p>
 </div> 
 
 <form action="join" method="post" class="frm" id="frm" onsubmit="return check();">
 	<div align="center">
-		<h1 align="center" style="margin-top:25px; margin-bottom: 25px;">SIGN UP</h1>
+		<h1 align="center" style="margin-top:30px; margin-bottom: 25px;">SIGN UP</h1>
 	</div>
-	<div class="sign">
-		<p class="sign-item">
-			<span class="sign-tag">아이디</span> <span><input id="id" type="text" name="user_id" placeholder="id" ></span>
-		</p>
-		<p class="sign-item">
-			<span class="sign-tag">암호</span> <span><input type="password" name="user_pw" placeholder="pw"  id="pw"></span>
-		</p>
-		
-		<p class="sign-item">
-			<span class="sign-tag">이름</span>  <span><input type="text" name="user_name" placeholder="name"  id="name"></span>
-		</p>		
-		
-		<p class="sign-item">
-			<span class="sign-tag">생년월일</span> <input type="date" name="user_birth" placeholder="birth"  id="birth">
-		</p>		
-		
-		<p class="sign-item" align="center">
-			<input class="clickbtn" type="submit" value="가입하기">
-		</p>
+
+	
+	<div class="cont">
+	<div class="flex-wrap">
+		<h6 class="item1">아이디</h6>
+		<input class="item2" id="id" type="text" name="user_id" placeholder="id" >
+
 	</div>
-		
+	
+	<div class="flex-wrap">
+		<h6 class="item1">비밀번호</h6>
+		<input class="item2" type="password" name="user_pw" placeholder="pw"  id="pw">
+	</div>
+	<div class="flex-wrap">
+		<h6 class="item1">이름</h6>
+		<input class="item2" type="text" name="user_name" placeholder="name"  id="name">
+	</div>
+	<div class="flex-wrap">
+		<h6 class="item1">생년월일</h6>
+		<input class="item2"  type="date" name="user_birth" placeholder="birth"  id="birth">
+	</div>
+
+	<div	align="center">
+		<input class="clickbtn" type="submit" value="가입하기">
+	</div>
+
+
+	</div>
+
 </form>
 
 
 </body>
+<jsp:include page="/WEB-INF/views/template/footer.jsp"></jsp:include>
+</html>

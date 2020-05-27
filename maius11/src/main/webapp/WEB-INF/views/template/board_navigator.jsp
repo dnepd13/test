@@ -29,7 +29,7 @@
 		 border: none;
 		 font-family: 'Noto Sans';
 		 font-weight: 400;
-		 font-size: 12px;
+		 font-size: 13px;
 	}
 </style>
 
