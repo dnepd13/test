@@ -15,7 +15,7 @@
 			<input type="text" name="user_id" placeholder="id">
 		</p>
 		<p>
-			<input type="text" name="user_pw" placeholder="pw">
+			<input type="password" name="user_pw" placeholder="pw">
 		</p>
 		<c:if test="${param.error != null}">
 			<h6>잘못된 아이디이거나 비밀번호입니다!</h6>
