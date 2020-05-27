@@ -37,11 +37,7 @@ function check() {
 			$("#birth").focus();
 			return false;
 		}
-		if(count!=8){
-			window.alert("정확한 생년월일을 입력해주세요!");
-			$("#birth").focus();
-			return false;
-		}
+	
 		
 		window.alert("회원가입에 성공하셨습니다!");
 return true;
@@ -107,7 +103,7 @@ return true;
 		</p>		
 		
 		<p class="sign-item">
-			<span class="sign-tag">생년월일</span> <input type="text" name="user_birth" placeholder="birth"  id="birth">
+			<span class="sign-tag">생년월일</span> <input type="date" name="user_birth" placeholder="birth"  id="birth">
 		</p>		
 		
 		<p class="sign-item" align="center">
