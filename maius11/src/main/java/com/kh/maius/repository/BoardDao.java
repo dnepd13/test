@@ -26,4 +26,8 @@ public interface BoardDao {
 		List<BoardUserVO> getList(Map<String, Integer> param);
 
 		void readCount(int board_no);
+		
+		void boardReplyCountUp(int board_no);
+		
+		void boardReplyCountDown(int board_no);
 }

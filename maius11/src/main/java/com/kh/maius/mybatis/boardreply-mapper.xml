@@ -7,12 +7,25 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="boardreply">
 	<insert id="insert" parameterType="boardReplyDto">
-		insert into board_reply values(board_reply_seq.nextval, #{board_no}, #{user_no}, #{reply_content}, to_date(sysdate, 'YYYY-MM-DD'))
+		insert into board_reply 
+		values(board_reply_seq.nextval, 
+		#{board_no}, #{user_no}, 
+		#{reply_content}, sysdate)
 	</insert>
 	
-	<select id="select" parameterType="int" resultType="boardReplyDto">
-		select * from board_reply where board_no = #{board_no}
+	<select id="select" parameterType="int" resultType="replyUserVO">
+		select * from board_reply R inner join
+			users U on R.user_no = U.user_no		
+		 where board_no = #{board_no} order by R.reply_no desc
 	</select>
+	
+	<update id="edit" parameterType="replyUserVO">
+		update board_reply set reply_content =#{reply_content}, reply_wdate=sysdate where reply_no=#{reply_no}
+	</update>
+	
+	<delete id="del" parameterType="replyUserVO">
+		delete board_reply where reply_no = #{reply_no}
+	</delete>
 </mapper>
 
 

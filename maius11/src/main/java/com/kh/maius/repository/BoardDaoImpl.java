@@ -61,6 +61,17 @@ public class BoardDaoImpl implements BoardDao{
 		sqlSession.update("board.readCount", board_no);		
 		
 	}
+
+	@Override
+	public void boardReplyCountUp(int board_no) {
+		sqlSession.update("board.replyCountUp", board_no);
+	}
+
+	@Override
+	public void boardReplyCountDown(int board_no) {
+		sqlSession.update("board.replyCountDown", board_no);
+		
+	}
 	
 	
 }

@@ -85,6 +85,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		update board set board_readcount = board_readcount +1 where board_no=#{board_no}
 	</update>
 	
+	<!-- 댓글 갯수 증가 -->
+	<update id="replyCountUp" parameterType="int">
+		update board set board_replycount = board_replycount+1 where board_no = #{board_no}
+	</update>
+	
+	<!-- 댓글 갯수 감소 -->
+	<update id="replyCountDown" parameterType="int">
+		update board set board_replycount = board_replycount-1 where board_no = #{board_no}
+	</update>
+	
 </mapper>
 
 

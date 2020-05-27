@@ -3,7 +3,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="/WEB-INF/views/template/header.jsp"></jsp:include>
 
-
 <style>
 	*{
    	 	box-sizing: border-box;
@@ -70,7 +69,7 @@
 				</td>
 				<td style="text-align: left">
 					<a href=${pageContext.request.contextPath}/board/detail?board_no=${list.board_no} class="title">${list.board_title }</a> 
-					[${list.board_replycount}] 
+					[${list.board_replycount }] 
 				</td>
 				<td>
 					${list.board_readcount} 
