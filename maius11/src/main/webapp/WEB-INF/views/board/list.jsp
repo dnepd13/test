@@ -53,7 +53,7 @@
 </div> 
 
 <div class="cont">
-	<table class="table table-hover" border="1" align="center"; style="width: 80%; text-align: center; font-size: 14px;">
+	<table class="table table-hover"  align="center"  style="width: 80%; text-align: center; font-size: 14px;">
 		<thead>
 			<tr>
 				<th>No.</th>						
