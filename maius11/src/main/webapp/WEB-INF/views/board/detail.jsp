@@ -9,6 +9,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <jsp:include page="/WEB-INF/views/template/header.jsp"></jsp:include>
 <script type="text/javascript">
+
 	$(function(){
 		$("#insertReply").on("click", function(){
 			if($("#content").val() !=""){
@@ -34,8 +35,6 @@
 			}
 		});
 	});
-	
-	window.attachEvent(onload, getreplyList());
 	
 	function getreplyList(){
 		$.ajax({
@@ -286,4 +285,7 @@
 
 </body>
 <jsp:include page="/WEB-INF/views/template/footer.jsp"></jsp:include>
+<script type="text/javascript">
+window.attachEvent(onload, getreplyList());
+</script>
 </html>
