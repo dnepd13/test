@@ -21,7 +21,7 @@
 					},
 					success:function(data){
 						if(data=="success"){
-							alert("댓글이 정삭적으로 등록되었습니다");
+							alert("댓글이 정상적으로 등록되었습니다");
 							$("#content").val("");
 							getreplyList();
 						}
@@ -79,7 +79,7 @@
 				var cell = $(this).parent().parent().next().children();
 				var text = cell.text();
 				cell.empty();
-				$("<input>").val(text).appendTo(cell);
+				$("<input class=edit>").val(text).appendTo(cell);
 				$(this).text("완료");
 			}
 			else{
@@ -224,6 +224,10 @@
 			color: white;		
 			padding: 0.2rem 0.5rem;
 			text-decoration: none;
+		}
+		.edit{
+			width: 100%;
+			height: 70px;
 		}
 </style>
 
