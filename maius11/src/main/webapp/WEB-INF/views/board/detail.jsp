@@ -35,7 +35,7 @@
 		});
 	});
 	
-	window.attachEvent(onload, getreplyList(););
+	window.attachEvent(onload, getreplyList());
 	
 	function getreplyList(){
 		$.ajax({
