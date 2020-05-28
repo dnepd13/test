@@ -53,7 +53,7 @@
 </div> 
 
 <div class="cont">
-	<table class="table table-hover border="1" align="center"; style="width: 80%; text-align: center; font-size: 14px;">
+	<table class="table table-hover" border="1" align="center"; style="width: 80%; text-align: center; font-size: 14px;">
 		<thead>
 			<tr>
 				<th>No.</th>						
@@ -69,7 +69,7 @@
 					${list.board_no} 
 				</td>
 				<td style="text-align: left">
-					<a href=${pageContext.request.contextPath}/board/detail?board_no=${list.board_no} class="title">${list.board_title }</a> 
+					<a href="${pageContext.request.contextPath}/board/detail?board_no=${list.board_no}" class="title">${list.board_title }</a> 
 					[${list.board_replycount}] 
 				</td>
 				<td>
@@ -87,7 +87,7 @@
 	
 	<p class="bbttnn">
 		<button type="button" class="clickbtn">
-			<a href="${pageContext.request.contextPath}/board/regist"  class="aaa"><i class="fas fa-pencil-alt"></i>글쓰기</a>
+			<a href="${pageContext.request.contextPath}/board/regist" class="aaa"><i class="fas fa-pencil-alt"></i>글쓰기</a>
 		</button>
 	</p>
 	  <div class="container nav" style="text-align: center;">
@@ -99,9 +99,9 @@
     			<jsp:param name="pagesize" value="${pagesize}" />
     			<jsp:param name="board_category" value="${board_category}"/>
     		</jsp:include>
-   </div>
+  	 </div>
 
-</div>
+	</div>
 <jsp:include page="/WEB-INF/views/template/footer.jsp"></jsp:include>
 </body>
 </html>

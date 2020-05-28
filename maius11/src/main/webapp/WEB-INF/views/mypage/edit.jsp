@@ -8,6 +8,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <jsp:include page="/WEB-INF/views/template/header.jsp"></jsp:include>
 <script>
+	
 	function check(){
 		if(!$("#name").val()){
 			alert("이름을 입력하세요");

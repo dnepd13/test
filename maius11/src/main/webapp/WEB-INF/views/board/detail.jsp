@@ -21,7 +21,7 @@
 					},
 					success:function(data){
 						if(data=="success"){
-							alert("댓글이 정삭적으로 등록되었습니다");
+							alert("댓글이 정상적으로 등록되었습니다");
 							$("#content").val("");
 							getreplyList();
 						}
@@ -33,7 +33,6 @@
 				$("#content").focus();
 			}
 		});
-		
 	});
 	
 	onload = getreplyList();
@@ -135,16 +134,6 @@
 			
 		});
 	});
-	
-	
-	function check(){
-		if(confirm("정말 삭제하시겠습니까?")==true){
-			return true;
-		}
-		else{
-			return false;
-		}
-	}
 	
 	function delCheck(){
 		if(confirm("정말 삭제하시겠습니까?")==true){
