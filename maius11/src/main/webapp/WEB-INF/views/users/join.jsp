@@ -78,7 +78,7 @@ return true;
 		padding: 0.575rem 0.9rem;
 		text-decoration: none;
 		width: 220px;
-		margin-top: 30px;
+		margin-top: 10px;
 	}
 	.flex-wrap{
             display: flex;
@@ -112,8 +112,9 @@ return true;
  			margin-right: 37%; 
  			padding-top: 20px; 
  			border-radius:2rem;
- 			min-height: 53%;
+ 			min-height: 60%;
  			margin-bottom: 80px;
+ 			margin-top: 50px;
         }
     
 </style>
@@ -123,12 +124,13 @@ return true;
 </div> 
 
 <form action="join" method="post" class="frm" id="frm" onsubmit="return check();">
-	<div align="center">
-		<h1 align="center" style="margin-top:30px; margin-bottom: 25px;">SIGN UP</h1>
-	</div>
 
-	
 	<div class="cont">
+	
+	<div align="center">
+		<h1 align="center" style="margin-top:15px; margin-bottom: 35px;">SIGN UP</h1>
+	</div>
+	
 	<div class="flex-wrap">
 		<h6 class="item1">아이디</h6>
 		<input class="item2" id="id" type="text" name="user_id" placeholder="id" >

@@ -12,6 +12,7 @@
 		margin-left: 30%;
 		margin-right: 30%;
 		padding: 20px;
+		margin-bottom: -7px;
 	}
 	.flex-wrap{
             display: flex;

@@ -43,7 +43,7 @@
 </script>
 <style>
 		.info{
-/* 		margin-top:10px; */
+ 		margin-top:25px; 
 		margin-left: 30%;
 		margin-right: 30%;
 		padding: 20px;
