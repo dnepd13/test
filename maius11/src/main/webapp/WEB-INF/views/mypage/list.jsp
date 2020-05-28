@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>Insert title here</title>
+<title>maius</title>
 <jsp:include page="/WEB-INF/views/template/header.jsp"></jsp:include>
 <style>
 	.info{
