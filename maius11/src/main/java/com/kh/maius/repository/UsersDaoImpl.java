@@ -30,5 +30,12 @@ public class UsersDaoImpl implements UsersDao{
 		
 	}
 
+
+	@Override
+	public String getName(int no) {
+		String name = sqlSession.selectOne("users.getName", no);
+		return name;
+	}
+
 	
 }
