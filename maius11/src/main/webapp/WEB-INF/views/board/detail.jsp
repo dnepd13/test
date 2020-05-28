@@ -35,7 +35,7 @@
 		});
 	});
 	
-	onload = getreplyList();
+	window.attachEvent(onload, getreplyList(););
 	
 	function getreplyList(){
 		$.ajax({
@@ -250,7 +250,7 @@
 
 	</tr>
 	<tr>
-		<td colspan="2">${detail.user_id }(${year-detail.user_birth.substring(0,4)+1}세)</td>
+		<td colspan="2">${detail.user_name }(${year-detail.user_birth.substring(0,4)+1}세)</td>
 	</tr>
 	<tr>
 		<td colspan="2" height="200">${detail.board_content}</td>
