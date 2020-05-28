@@ -21,7 +21,7 @@
 					},
 					success:function(data){
 						if(data=="success"){
-							alert("댓글이 정삭적으로 등록되었습니다");
+							alert("댓글이 정상적으로 등록되었습니다");
 							$("#content").val("");
 							getreplyList();
 						}
