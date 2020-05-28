@@ -75,8 +75,16 @@ public class MypageController {
 	}
 	
 	@GetMapping("/delete")
-	public String delete(@RequestParam int user_no) {
+	public String delete(@RequestParam int user_no,HttpSession session) {
 		mypage.delete(user_no);
+		
+		session.removeAttribute("user_name");
+		session.removeAttribute("user_no");
+		session.removeAttribute("user_id");
+		
+		session.removeAttribute("memory");
+		
+		
 		return "redirect:/";
 	}
 }

@@ -48,7 +48,7 @@ public class BoardController {
 		//페이지 크기
 		int pagesize = 10;
 		//네비게이터 크기
-		int navsize = 10;
+		int navsize = 5;
 		
 		//페이징 추가
 		int pno;
