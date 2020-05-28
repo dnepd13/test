@@ -40,7 +40,10 @@
   <a href="${pageContext.request.contextPath}/board/list" style="margin-left: 30px; margin-bottom: 10px;">
  	 <img src="${pageContext.request.contextPath}/resources/image/logo.jpg" width="150px" height="60px">
   </a>
+  <c:if test="${user_name != null}">
     	<span style="margin-left: 50%;"><i class="fas fa-user-alt"></i> ${user_name}님 환영합니다</span>
+  </c:if>
+  
   <div class="collapse navbar-collapse d-flex flex-row-reverse bd-highlight"" id="navbarNav" >
     <ul class="navbar-nav " >
       <li class="nav-item ">
