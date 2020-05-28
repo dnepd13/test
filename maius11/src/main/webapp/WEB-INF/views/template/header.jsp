@@ -4,6 +4,23 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+
+onload = function(){
+	$.ajax({
+		url:"/maius/getname",
+		data:{
+			user_no:"${user_no}"
+		},
+		success:function(data){
+			$("#name1").html(data[0].user_name);
+		}
+	});
+	
+}
+
+</script>
 <style>
 	.nav-item{
 		color: black;
@@ -41,7 +58,7 @@
  	 <img src="${pageContext.request.contextPath}/resources/image/logo.jpg" width="150px" height="60px">
   </a>
   <c:if test="${user_name != null}">
-    	<span style="margin-left: 50%;"><i class="fas fa-user-alt"></i> ${user_name}님 환영합니다</span>
+    	<span style="margin-left: 50%;"><i class="fas fa-user-alt"></i> <span id="name1"></span>님 환영합니다</span>
   </c:if>
   
   <div class="collapse navbar-collapse d-flex flex-row-reverse bd-highlight"" id="navbarNav" >

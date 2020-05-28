@@ -40,9 +40,16 @@
 			<url-pattern>/board/detail</url-pattern>
 			<url-pattern>/board/edit</url-pattern>
 			<url-pattern>/board/list</url-pattern>
+			<url-pattern>/board/delete</url-pattern>
+			<url-pattern>/board/replyinsert</url-pattern>
+			<url-pattern>/board/replylist</url-pattern>
+			<url-pattern>/board/replyedit</url-pattern>
+			<url-pattern>/board/replydel</url-pattern>
 			<url-pattern>/mypage/list</url-pattern>
 			<url-pattern>/mypage/edit</url-pattern>
 			<url-pattern>/mypage/pw</url-pattern>
+			<url-pattern>/mypage/delete</url-pattern>
+			<url-pattern>/logout</url-pattern>
 	</filter-mapping>
 	
 	

@@ -27,7 +27,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from users where user_id=#{user_id} and user_pw = #{user_pw}
 	</select>
 	
-	
+	<select id="getName" parameterType="int" resultType="String">
+		select user_name from users where user_no = #{user_no}
+	</select>
 	
 	<!-- 회원 번호 뽑기 -->
 	<select id="getNo" resultType="int">
