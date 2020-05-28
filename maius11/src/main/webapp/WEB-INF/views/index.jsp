@@ -48,11 +48,26 @@
 		text-align: center;
 	}
 </style>	
+<script>
+	function  check() {
+		if(!document.frm.user_id.value){
+			alert("아이디를 입력해주세요!");
+			document.frm.user_id.focus();
+			return false;
+		}
+		if(!document.frm.user_pw.value){
+			alert("비밀번호를 입력해주세요!");
+			document.frm.user_pw.focus();
+			return false;
+		}
+		return true;
+	}
+</script>
 </head>
 
 <body>
 <div class="login">
-	<form action="login" method="post">
+	<form name="frm" action="login" method="post">
 		<img class="img" src="${pageContext.request.contextPath}/resources/image/logo.jpg">
 		<div>
 			<input class="in" type="text" name="user_id" placeholder="아이디(ID)" >
@@ -65,7 +80,7 @@
 			<h6 style="color: red;">잘못된 아이디이거나 비밀번호입니다!</h6>
 		</c:if>
 		<div>
-			<input class="clickbtn" type="submit" value="로그인">
+			<input class="clickbtn" type="submit" value="로그인" onclick="return check();">
 		</div>
 	</form>
 		<div>

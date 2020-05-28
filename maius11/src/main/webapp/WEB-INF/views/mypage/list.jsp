@@ -70,7 +70,7 @@
 		</div>
 	<hr>
 		<div class="flex-wrap">
-			<h6 class="item1">积老</h6>
+			<h6 class="item1">积斥岿老</h6>
 			<span class="item2">${my.user_birth.substring(0,10)}</span>
 		</div>
 		
