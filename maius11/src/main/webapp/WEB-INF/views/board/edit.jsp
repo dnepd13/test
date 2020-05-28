@@ -4,6 +4,7 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <jsp:include page="/WEB-INF/views/template/header.jsp"></jsp:include>
 <html>
+<title>maius</title>
 <style>
 	#copyright{
 		font-family: 'Noto Sans';

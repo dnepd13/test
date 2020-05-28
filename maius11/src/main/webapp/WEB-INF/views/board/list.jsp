@@ -4,6 +4,7 @@
 <jsp:include page="/WEB-INF/views/template/header.jsp"></jsp:include>
 
 <html>
+<title>maius</title>
 <style>
 	*{
    	 	box-sizing: border-box;
