@@ -4,6 +4,7 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <jsp:include page="/WEB-INF/views/template/header.jsp"></jsp:include>
 <html>
+<title>maius</title>
 <script>
 //아이디 중복&형식 검사 
 function check() {
