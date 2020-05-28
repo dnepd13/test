@@ -141,7 +141,7 @@
 		</div>
 	<hr>
 		<div class="flex-wrap">
-			<h6 class="item1">생일</h6>
+			<h6 class="item1">생년월일</h6>
 			<span class="item3">
 				<input class="in item2" id="birth" type="text" name="user_birth" value="${my.user_birth.substring(0,10)}">
 			</span>
