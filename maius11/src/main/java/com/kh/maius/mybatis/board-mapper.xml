@@ -75,7 +75,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 게시글 전체 조회 구문	-->
  	<select id="list" parameterType="map" resultType="boardUserDto">
- 		select * from(select rownum rn, A.* from(select B.*,C.user_name, C.user_birth from board B inner join users C on B.user_no=C.user_no order by board_no desc)A)where rn between #{start} and #{finish}
+ 		select * from(select rownum rn, A.* from(select B.*,C.user_name, 
+ 		C.user_birth from board B inner join users C on B.user_no=C.user_no 
+ 		order by board_no desc)A)where rn between #{start} and #{finish}
 	</select>
 	
 	
