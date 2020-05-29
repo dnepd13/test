@@ -72,6 +72,18 @@ public class BoardDaoImpl implements BoardDao{
 		sqlSession.update("board.replyCountDown", board_no);
 		
 	}
-	
+
+	@Override
+	public List<BoardDto> search(Map<String, String> param) {
+		return sqlSession.selectList("board.search", param);
+	}
+
+	@Override
+	public int boardSearchCount(Map<String, String> param) {
+		return sqlSession.selectOne("board.boardSearchCount", param);
+
+	}
+
+
 	
 }

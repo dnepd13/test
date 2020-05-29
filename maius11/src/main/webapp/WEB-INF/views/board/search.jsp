@@ -58,7 +58,7 @@
 <form action="search" method="get">    	
 		    		<select id="selectt" name="type">
 		    			<option value="board_title">글제목</option>
-		    			<option value="user_no">작성자</option>
+		    			<option value="user_name">작성자</option>
 		    		</select>    		
 	    		<input type="search" name="keyword"  required>
 				<input id="search-btn" type="submit"  value="검색" >
@@ -74,26 +74,37 @@
 				<th>작성일</th>
 			</tr>
 		</thead>
-			<c:forEach var="list" items="${list}">
+		  <c:choose>
+		<c:when test="${!empty search}">
+			<c:forEach var="search" items="${search}">
 			<tr>
 				<td>
-					${list.board_no} 
+					${search.board_no} 
 				</td>
 				<td style="text-align: left">
-					<a href="${pageContext.request.contextPath}/board/detail?board_no=${list.board_no}" class="title">${list.board_title }</a> 
-					[${list.board_replycount}] 
+					<a href="${pageContext.request.contextPath}/board/detail?board_no=${search.board_no}" class="title">${search.board_title }</a> 
+					[${search.board_replycount}] 
 				</td>
 				<td>
-					${list.board_readcount} 
+					${search.board_readcount} 
 				</td>
 				<td>
-					${list.user_name}(${year-list.user_birth.substring(0,4)+1}세)
+					${search.user_name}(${year-search.user_birth.substring(0,4)+1}세)
 				</td>
 				<td>
-					${list.board_wdate.substring(0,16)}
+					${search.board_wdate.substring(0,16)}
 				</td>
 			</tr>				
 		</c:forEach>
+		</c:when>
+		<c:otherwise>
+	    		<tr>
+					<td colspan="5">
+						검색 결과가 없습니다.
+					</td>
+				</tr>
+	    	</c:otherwise>
+	    </c:choose>
 	</table>
 	
 	<p class="bbttnn">

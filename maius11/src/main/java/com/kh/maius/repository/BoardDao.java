@@ -30,4 +30,8 @@ public interface BoardDao {
 		void boardReplyCountUp(int board_no);
 		
 		void boardReplyCountDown(int board_no);
+
+		List<BoardDto> search(Map<String, String> param);
+
+		int boardSearchCount(Map<String, String> param);
 }
