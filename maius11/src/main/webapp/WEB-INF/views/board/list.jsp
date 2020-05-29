@@ -63,7 +63,7 @@
 <form action="search" method="get">    	
 		    		<select id="selectt" name="type">
 		    			<option value="board_title">글제목</option>
-		    			<option value="user_no">작성자</option>
+		    			<option value="user_name">작성자</option>
 		    		</select>    		
 	    		<input type="text" name="keyword"  required>
 				<input id="search-btn" type="submit"  value="검색" >

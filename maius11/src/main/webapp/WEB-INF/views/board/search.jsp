@@ -54,7 +54,7 @@
 </div> 
 
 <div class="cont">
-
+<p class="bbttnn">
 <form action="search" method="get">    	
 		    		<select id="selectt" name="type">
 		    			<option value="board_title">글제목</option>
@@ -63,7 +63,7 @@
 	    		<input type="text" name="keyword"  required>
 				<input id="search-btn" type="submit"  value="검색" >
 			</form>
-
+</p>
 	<table class="table table-hover"  align="center"  style="width: 80%; text-align: center; font-size: 14px;">
 		<thead>
 			<tr>
