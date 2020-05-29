@@ -79,12 +79,13 @@ return true;
 		padding: 0.575rem 0.9rem;
 		text-decoration: none;
 		width: 220px;
+		margin-bottom: 40px;
 		margin-top: 10px;
 	}
 	.flex-wrap{
             display: flex;
             flex-direction: row;           /* 줄 안에 배치 */
-             margin-bottom: 25px;
+             margin-bottom: 28px;
              margin-top: 25px;
         }
         @media screen and (max-width:640px){
@@ -96,6 +97,7 @@ return true;
             flex-grow: 9;                   /* 줄에서 남은 공간을 차지하는 비율 */
             height: 30px;                 /* 1개만 높이가 있어도 나머지가 같은 높이로 설정된다. */
             margin-left: 40px;
+            vertical-align: middle;
         }
         .item2{
             flex-grow: 1;
@@ -113,13 +115,15 @@ return true;
  			margin-right: 37%; 
  			padding-top: 20px; 
  			border-radius:2rem;
- 			min-height: 60%;
- 			margin-bottom: 80px;
+ 			min-height: 100%;
+ 			margin-bottom: 70px;
  			margin-top: 50px;
         }
     
 </style>
 <body>
+<main>
+<section>
 <div>	<!-- header와 경계선 -->
 	<p style="background-color: rgb(224, 224, 224); padding: 10px; padding-left:50px; font-weight: bold; font-size: 1.1rem;">> 회원가입</p>
 </div> 
@@ -160,7 +164,8 @@ return true;
 
 </form>
 
-
+</section>
+</main>
 </body>
 <jsp:include page="/WEB-INF/views/template/footer.jsp"></jsp:include>
 </html>

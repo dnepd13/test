@@ -73,7 +73,6 @@ public class BoardDetailController {
 		
 		
 		if(user_id != null) {
-		System.out.println(memory);
 			boolean isMine = user_id.equals(vo.getUser_id()); //사용자아이디 == 작성자아이디 라고 물어보는것
 			boolean isFirst = memory.add(board_no); //배열에 조회한 글번호를 넣어서 처음 들어가면 true, 재조회라면 false임 
 

@@ -9,6 +9,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <jsp:include page="/WEB-INF/views/template/header.jsp"></jsp:include>
 <script type="text/javascript">
+
 	$(function(){
 		$("#insertReply").on("click", function(){
 			if($("#content").val() !=""){
@@ -34,8 +35,6 @@
 			}
 		});
 	});
-	
-	window.attachEvent(onload, getreplyList());
 	
 	function getreplyList(){
 		$.ajax({
@@ -233,6 +232,8 @@
 
 </head>
 <body>
+<main>
+<section>
 <div>	<!-- header와 경계선 -->
 	<p style="background-color: rgb(224, 224, 224); padding: 7px; padding-left:50px; font-weight: bold; font-size: 1.1rem;">> 자유게시판</p>
 </div> 
@@ -283,7 +284,11 @@
 	</tr>
 </table>
 </div>
-
+</section>
+</main>
 </body>
 <jsp:include page="/WEB-INF/views/template/footer.jsp"></jsp:include>
+<script type="text/javascript">
+window.attachEvent(onload, getreplyList());
+</script>
 </html>

@@ -22,68 +22,158 @@ onload = function(){
 
 </script>
 <style>
-	.nav-item{
-		color: black;
-		font-weight: bold;
-		font-size:17px;
-		margin: 10px;
-	}
-	.nav-item:active a{
-	color: black;
-	}
-	.bg-light{
-		background-color: white;
-	}
-	.navbar{
-		background-color: white;
-	}
-	html, body{
-	 	margin:0; padding:0; width:100%; height:100%;
-	 }
-	 .wrapper{ 
-	 	display: flex; min-height: 100vh; flex-direction: column;
-	}
-	.cont{
-		flex: 1;
-		 min-height: 80%;
-	}
-	.info{
-		flex: 1;
-		 min-height: 75%;
-	}
+		.menu{
+            background-color: white;
+            margin-left: 10px;
+            margin-right: 10px;
+            vertical-align: middle;
+            margin-top: 10px;
+        }
+        .menu > .left-menu{
+            float: left;
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        .menu > .right-menu{
+			font-size:17px;
+			font-weight: bold;
+            float: right;
+            padding: 15px;
+            margin-left: 20px;
+            color: black;
+            vertical-align: middle;       
+            margin-top: 8px;    
+        }
+        .menu::after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        
+        .menu a{
+            text-decoration:none; /* 밑줄제거 */
+        }
+        
+        .menu a:hover{
+            color: gray;
+        }
+       
+        .menu > label{
+            font-size: 2rem;
+            color: black;
+            padding: 5px;
+            padding-left: 15px;
+            cursor: pointer;       
+            display: none;
+        }
+        .menu > #hamburg{
+            display: none;
+        }
+        .menu > #hamburg:checked ~ .menu-item{
+            display: block;
+        }   
+        
+         .menu > #hamburg:checked ~ .menu-item.wel{
+            display: none;
+        }   
+         
+        /*
+            좁은 화면이 되면...
+            [1] 라벨 표시
+            [2] 메뉴 숨김
+            [3] .right-menu의 float를 left로 변경하고 폭을 최대로 키움
+        */
+        @media screen and (max-width:720px){
+            .menu > label{
+                display: block;
+            }
+            .menu > .menu-item{
+                display: none;
+                width: 100%;
+            }
+            .menu > .left-menu{
+            	display: none;
+            }
+            .menu > .right-menu{
+            	float:left;
+                font-size:17px;
+				font-weight: bold;
+	            padding: 5px;
+	            padding-left:20px;
+	            vertical-align: middle;      
+	            margin-top: 5px;               
+            }
+
+        }
+ /*//////////////////////////////////////////////////////////////*/     
+  		main{
+            display: flex; /*바로안에있는것만적용됨*/
+            flex-wrap: wrap;
+        }
+        header{
+/*             background-color: rgba(238, 69, 69, 0.308); */
+            width: 100%;
+        }
+        section{
+/*             background-color: rgba(38, 233, 184, 0.356); */
+            flex-grow: 1;               /* 나머지영역을 다 가져간다 */
+            min-height: 630px;
+        }
+        footer{
+/*             background-color: rgba(0, 183, 255, 0.39); */
+            width: 100%;
+        }
+        footer > div{
+        	padding-left: 50px;
+        }
+
+        /* 모바일 대응 스타일 */
+        @media screen and (max-width:640px){
+            main{
+                flex-direction: column;     /* aside를 1줄로 펼쳐서 보여주도록 변경 */
+            }
+            header{
+                order:1;
+            }
+            section{
+                order:2;
+            }
+            footer{
+                order:3;
+            }
+        }
 </style>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a href="${pageContext.request.contextPath}/board/list" style="margin-left: 30px; margin-bottom: 10px;">
- 	 <img src="${pageContext.request.contextPath}/resources/image/logo.jpg" width="150px" height="60px">
-  </a>
-  <c:if test="${user_name != null}">
-    	<span style="margin-left: 50%;"><i class="fas fa-user-alt"></i> <span id="name1"></span>님 환영합니다</span>
-  </c:if>
+<header>
+ <div class="menu menu-fixed">
+    <label for="hamburg">
+    	&equiv;
+    	<a href="${pageContext.request.contextPath}/board/list"  class="left-menu">
+		 	 <img src="${pageContext.request.contextPath}/resources/image/logo.jpg" width="150px" height="60px" class="img">
+		</a>
+    </label>
+    <input type="checkbox" id="hamburg">
+    
+     <a href="${pageContext.request.contextPath}/board/list"  class="left-menu">
+	 	 <img src="${pageContext.request.contextPath}/resources/image/logo.jpg" width="150px" height="60px">
+	  </a>
+    
+	 <c:choose>
+	      <c:when test="${user_name==null}">
+   				<a href="${pageContext.request.contextPath}" class="menu-item right-menu">로그인</a> 
+	      </c:when>
+	      <c:otherwise>
+	      		<a href="${pageContext.request.contextPath}/logout" class="menu-item right-menu">로그아웃</a> 
+	      </c:otherwise>
+	      </c:choose>
   
-  <div class="collapse navbar-collapse d-flex flex-row-reverse bd-highlight"" id="navbarNav" >
-    <ul class="navbar-nav " >
-      <li class="nav-item ">
-        <a class="nav-link" href="${pageContext.request.contextPath}/board/list">자유게시판 <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="${pageContext.request.contextPath}/mypage/list">마이페이지</a>
-      </li>
-      <li class="nav-item" style="margin-right: 30px;">
-      
-      
-      <c:choose>
-      <c:when test="${user_name==null}">
-       <a class="nav-link" href="${pageContext.request.contextPath}">로그인</a>
-      </c:when>
-      <c:otherwise>
-      
-      <a class="nav-link" href="${pageContext.request.contextPath}/logout">로그아웃</a>
-      </c:otherwise>
-      
-      </c:choose>
-
-      </li>
-    </ul>
-  </div>
-</nav>
+    <a href="${pageContext.request.contextPath}/mypage/list" class="menu-item right-menu">마이페이지</a>
+    <a href="${pageContext.request.contextPath}/board/list" class="menu-item right-menu">자유게시판</a>
+ 	
+ 	<c:if test="${user_name != null}">
+   	<span class="menu-item right-menu wel">
+   		<i class="fas fa-user-alt"></i> <span id="name1"></span>님 환영합니다
+   	</span>
+   	</c:if>
+</div>
+</header>
