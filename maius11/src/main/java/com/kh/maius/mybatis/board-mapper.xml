@@ -97,6 +97,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		update board set board_replycount = board_replycount-1 where board_no = #{board_no}
 	</update>
 	
+	
+	<!-- 게시글 검색 구문 -->
+	<select id="search" parameterType="hashmap" resultType="boardUserDto">		
+select * from(
+		select rownum rn, A.* from(select B.*,U.user_name,U.user_birth from board B inner join users U on B.user_no=U.user_no
+			where ${type} like '%'||#{keyword}||'%' order by board_no desc
+		)A)
+	where rn between #{start} and #{finish}
+	</select>
+	
+	
+		
+	<!-- 게시판 검색 결과 글 개수 세는 구문 -->
+	<select id="boardSearchCount" parameterType="map" resultType="int">
+		select count(*) from board B inner join Users U on B.user_no=U.user_no where ${type} like '%'||#{keyword}||'%' 
+	</select>
 </mapper>
 
 

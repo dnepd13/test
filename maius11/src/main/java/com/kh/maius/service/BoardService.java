@@ -1,6 +1,9 @@
 package com.kh.maius.service;
 
 
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,6 +35,13 @@ public class BoardService {
 
 	public void readCount(int board_no) {
 		boardDao.readCount(board_no);	//조회수 증가
+	}
+
+
+
+	public List<BoardDto> search(Map<String, String> param) {
+		List<BoardDto> search = boardDao.search(param);
+		return search;
 	}
 	
 }

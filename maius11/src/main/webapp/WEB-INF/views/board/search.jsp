@@ -30,20 +30,17 @@
 		margin-left: 10px;
 		margin-right:10px;
 		margin-top: 40px;
-		margin-bottom:3%;
 		height: 60%;
 		position: relative;
 		padding-bottom: 15px;
 	}
 	.bbttnn{
 		text-align:right; 
-		margin-right: 10%;
-		margin-top: -4.3%;
-		cursor: pointer;
+		margin-right: 150px;
 	}
 	.clickbtn{
 		border:none;
-		font-size: 13px;
+		font-size: 14px;
 		background-color: rgb(94, 94, 94);
 		border-radius: 0.25rem;
 		color: white;		
@@ -52,8 +49,6 @@
 	}
 </style>
 <body>
-<main>
-<section>
 <div>	<!-- header와 경계선 -->
 	<p style="background-color: rgb(224, 224, 224); padding: 7px; padding-left:50px; font-weight: bold; font-size: 1.1rem;">> 자유게시판</p>
 </div> 
@@ -63,7 +58,7 @@
 <form action="search" method="get">    	
 		    		<select id="selectt" name="type">
 		    			<option value="board_title">글제목</option>
-		    			<option value="user_no">작성자</option>
+		    			<option value="user_name">작성자</option>
 		    		</select>    		
 	    		<input type="search" name="keyword"  required>
 				<input id="search-btn" type="submit"  value="검색" >
@@ -79,47 +74,56 @@
 				<th>작성일</th>
 			</tr>
 		</thead>
-			<c:forEach var="list" items="${list}">
+		  <c:choose>
+		<c:when test="${!empty search}">
+			<c:forEach var="search" items="${search}">
 			<tr>
 				<td>
-					${list.board_no} 
+					${search.board_no} 
 				</td>
 				<td style="text-align: left">
-					<a href="${pageContext.request.contextPath}/board/detail?board_no=${list.board_no}" class="title">${list.board_title }</a> 
-					[${list.board_replycount}] 
+					<a href="${pageContext.request.contextPath}/board/detail?board_no=${search.board_no}" class="title">${search.board_title }</a> 
+					[${search.board_replycount}] 
 				</td>
 				<td>
-					${list.board_readcount} 
+					${search.board_readcount} 
 				</td>
 				<td>
-					${list.user_name}(${year-list.user_birth.substring(0,4)+1}세)
+					${search.user_name}(${year-search.user_birth.substring(0,4)+1}세)
 				</td>
 				<td>
-					${list.board_wdate.substring(0,16)}
+					${search.board_wdate.substring(0,16)}
 				</td>
 			</tr>				
 		</c:forEach>
+		</c:when>
+		<c:otherwise>
+	    		<tr>
+					<td colspan="5">
+						검색 결과가 없습니다.
+					</td>
+				</tr>
+	    	</c:otherwise>
+	    </c:choose>
 	</table>
-</div>
 	
 	<p class="bbttnn">
-		<a href="${pageContext.request.contextPath}/board/regist" class="aaa">
-			<button type="button" class="clickbtn">글쓰기	</button>
-		</a>
+		<button type="button" class="clickbtn">
+			<a href="${pageContext.request.contextPath}/board/regist" class="aaa"><i class="fas fa-pencil-alt"></i>글쓰기</a>
+		</button>
 	</p>
+	  <div class="container nav" style="text-align: center;">
+    		<!-- 네비게이터(navigator) -->    		
+    		<jsp:include page="/WEB-INF/views/template/board_navigator.jsp">
+    			<jsp:param name="pno" value="${pno}" />
+    			<jsp:param name="count" value="${count}" />
+    			<jsp:param name="navsize" value="${navsize}" />
+    			<jsp:param name="pagesize" value="${pagesize}" />
+    			<jsp:param name="board_category" value="${board_category}"/>
+    		</jsp:include>
+  	 </div>
 
-<div class="container nav" style="text-align: center; margin-top: 3%;">
- 		<!-- 네비게이터(navigator) -->    		
- 		<jsp:include page="/WEB-INF/views/template/board_navigator.jsp">
- 			<jsp:param name="pno" value="${pno}" />
- 			<jsp:param name="count" value="${count}" />
- 			<jsp:param name="navsize" value="${navsize}" />
- 			<jsp:param name="pagesize" value="${pagesize}" />
- 			<jsp:param name="board_category" value="${board_category}"/>
- 		</jsp:include>
- </div>
+	</div>
 <jsp:include page="/WEB-INF/views/template/footer.jsp"></jsp:include>
-</section>
-</main>
 </body>
 </html>
