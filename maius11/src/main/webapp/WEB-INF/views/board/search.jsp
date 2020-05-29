@@ -60,7 +60,7 @@
 		    			<option value="board_title">글제목</option>
 		    			<option value="user_name">작성자</option>
 		    		</select>    		
-	    		<input type="search" name="keyword"  required>
+	    		<input type="text" name="keyword"  required>
 				<input id="search-btn" type="submit"  value="검색" >
 			</form>
 
