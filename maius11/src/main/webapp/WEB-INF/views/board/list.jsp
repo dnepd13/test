@@ -30,17 +30,20 @@
 		margin-left: 10px;
 		margin-right:10px;
 		margin-top: 40px;
+		margin-bottom:3%;
 		height: 60%;
 		position: relative;
 		padding-bottom: 15px;
 	}
 	.bbttnn{
 		text-align:right; 
-		margin-right: 150px;
+		margin-right: 10%;
+		margin-top: -4.3%;
+		cursor: pointer;
 	}
 	.clickbtn{
 		border:none;
-		font-size: 14px;
+		font-size: 13px;
 		background-color: rgb(94, 94, 94);
 		border-radius: 0.25rem;
 		color: white;		
@@ -49,6 +52,8 @@
 	}
 </style>
 <body>
+<main>
+<section>
 <div>	<!-- header와 경계선 -->
 	<p style="background-color: rgb(224, 224, 224); padding: 7px; padding-left:50px; font-weight: bold; font-size: 1.1rem;">> 자유게시판</p>
 </div> 
@@ -95,24 +100,26 @@
 			</tr>				
 		</c:forEach>
 	</table>
+</div>
 	
 	<p class="bbttnn">
-		<button type="button" class="clickbtn">
-			<a href="${pageContext.request.contextPath}/board/regist" class="aaa"><i class="fas fa-pencil-alt"></i>글쓰기</a>
-		</button>
+		<a href="${pageContext.request.contextPath}/board/regist" class="aaa">
+			<button type="button" class="clickbtn">글쓰기	</button>
+		</a>
 	</p>
-	  <div class="container nav" style="text-align: center;">
-    		<!-- 네비게이터(navigator) -->    		
-    		<jsp:include page="/WEB-INF/views/template/board_navigator.jsp">
-    			<jsp:param name="pno" value="${pno}" />
-    			<jsp:param name="count" value="${count}" />
-    			<jsp:param name="navsize" value="${navsize}" />
-    			<jsp:param name="pagesize" value="${pagesize}" />
-    			<jsp:param name="board_category" value="${board_category}"/>
-    		</jsp:include>
-  	 </div>
 
-	</div>
+<div class="container nav" style="text-align: center; margin-top: 3%;">
+ 		<!-- 네비게이터(navigator) -->    		
+ 		<jsp:include page="/WEB-INF/views/template/board_navigator.jsp">
+ 			<jsp:param name="pno" value="${pno}" />
+ 			<jsp:param name="count" value="${count}" />
+ 			<jsp:param name="navsize" value="${navsize}" />
+ 			<jsp:param name="pagesize" value="${pagesize}" />
+ 			<jsp:param name="board_category" value="${board_category}"/>
+ 		</jsp:include>
+ </div>
 <jsp:include page="/WEB-INF/views/template/footer.jsp"></jsp:include>
+</section>
+</main>
 </body>
 </html>

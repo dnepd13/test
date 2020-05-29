@@ -232,6 +232,8 @@
 
 </head>
 <body>
+<main>
+<section>
 <div>	<!-- header와 경계선 -->
 	<p style="background-color: rgb(224, 224, 224); padding: 7px; padding-left:50px; font-weight: bold; font-size: 1.1rem;">> 자유게시판</p>
 </div> 
@@ -282,7 +284,8 @@
 	</tr>
 </table>
 </div>
-
+</section>
+</main>
 </body>
 <jsp:include page="/WEB-INF/views/template/footer.jsp"></jsp:include>
 <script type="text/javascript">
