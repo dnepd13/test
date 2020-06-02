@@ -49,21 +49,24 @@
 	}
 </style>
 <body>
+<main>
+
+<section>
 <div>	<!-- header와 경계선 -->
 	<p style="background-color: rgb(224, 224, 224); padding: 7px; padding-left:50px; font-weight: bold; font-size: 1.1rem;">> 자유게시판</p>
 </div> 
 
 <div class="cont">
-
-<form action="search" method="get">    	
+<div align="right">
+<form action="search" method="get" >    	
 		    		<select id="selectt" name="type">
 		    			<option value="board_title">글제목</option>
 		    			<option value="user_name">작성자</option>
 		    		</select>    		
-	    		<input type="search" name="keyword"  required>
+	    		<input type="text" name="keyword"  required>
 				<input id="search-btn" type="submit"  value="검색" >
 			</form>
-
+</div>
 	<table class="table table-hover"  align="center"  style="width: 80%; text-align: center; font-size: 14px;">
 		<thead>
 			<tr>
@@ -124,6 +127,9 @@
   	 </div>
 
 	</div>
-<jsp:include page="/WEB-INF/views/template/footer.jsp"></jsp:include>
+</section>
+	
+</main>
 </body>
+<jsp:include page="/WEB-INF/views/template/footer.jsp"></jsp:include>
 </html>
