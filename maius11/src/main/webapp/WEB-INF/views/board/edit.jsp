@@ -2,6 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/suneditor@latest/dist/css/suneditor.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/suneditor@latest/dist/suneditor.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/suneditor@latest/src/lang/ko.js"></script>
 <jsp:include page="/WEB-INF/views/template/header.jsp"></jsp:include>
 <html>
 <title>maius</title>
@@ -37,6 +40,34 @@
 	line-height: 1.5;
 	}
 </style>
+<script>
+function loadEditor(){
+    var editor = SUNEDITOR.create((document.querySelector('textarea[name=board_content]')),{
+    //언어 설정
+    lang: SUNEDITOR_LANG['ko'],
+    
+    //버튼 목록
+    buttonList:[
+    	   ['font', 'fontSize', 'fontColor','underline', 'italic','align']
+    ],
+    //글꼴 설정
+    font:[
+        '굴림', '궁서', 'Verdana', 'Arial'
+    ],
+    //크기 설정
+    fontSize:[
+        10, 16, 32
+    ],       
+});
+	//중요 : 키입력시마다 값을 원래위치(textarea)에 복사
+	editor.onKeyUp = function(e){
+			var content = document.querySelector("textarea[name=board_content]");
+			content.value = editor.getContents();
+		}
+	}
+	//윈도우 로딩 시 loadEditor를 실행하도록 설정(body에 onload 한 효과)
+		window.onload = loadEditor;
+</script>
 <body>
 <main>
 <section>
