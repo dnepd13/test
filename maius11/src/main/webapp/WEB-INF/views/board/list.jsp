@@ -29,7 +29,7 @@
 	.cont{
 		margin-left: 10px;
 		margin-right:10px;
-		margin-top: 40px;
+		margin-top: 25px;
 		margin-bottom:3%;
 		height: 60%;
 		position: relative;
@@ -50,6 +50,25 @@
 		padding: 0.375rem 0.75rem;
 		text-decoration: none;
 	}
+	#search-btn{
+		width: 38px;
+	    height: 36px;    
+	    border: none;
+	    background: url(//img.icons8.com/material-outlined/24/000000/search.png) no-repeat 5px;
+	    line-height: 16px;
+	    outline: none;
+		}
+	#selectt{
+		font-family: 'Noto Sans';
+	    font-weight: 400;
+	    font-size: 14px;
+         padding-bottom: 3px;
+         border: none;
+         border-bottom:  1px solid black;
+       }
+       .frm{
+       	margin-right: 10%;
+       }
 </style>
 <body>
 <main>
@@ -61,13 +80,13 @@
 <div class="cont">
 
 <div align="right">
-<form action="search" method="get" >    	
+<form action="search" method="get"  class="frm">    	
 		    		<select id="selectt" name="type">
 		    			<option value="board_title">글제목</option>
 		    			<option value="user_name">작성자</option>
 		    		</select>    		
 	    		<input type="text" name="keyword"  required>
-				<input id="search-btn" type="submit"  value="검색" >
+				<input id="search-btn" type="submit"  value="　" >
 			</form>
 </div>
 
@@ -105,9 +124,9 @@
 </div>
 	
 	<p class="bbttnn">
-		<a href="${pageContext.request.contextPath}/board/regist" class="aaa">
-			<button type="button" class="clickbtn">글쓰기	</button>
-		</a>
+		<button type="button" class="clickbtn">
+			<a href="${pageContext.request.contextPath}/board/regist" class="aaa"><i class="fas fa-pencil-alt"></i>글쓰기</a>
+		</button>
 	</p>
 
 <div class="container nav" style="text-align: center; margin-top: 3%;">
