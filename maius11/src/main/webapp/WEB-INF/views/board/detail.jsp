@@ -9,28 +9,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <jsp:include page="/WEB-INF/views/template/header.jsp"></jsp:include>
 <script type="text/javascript">
-	$(function() {
-		$("#insertReply").on("click", function() {
-			if($("#content").val() != ""){
-				$.ajax({
-					url:"/maius/board/replyinsert",
-					data:{
-						board_no:"${datail.board_no}",
-						reply_content:$("#content").val(),
-						user_no:"${user_no}"
-					},
-					success:function(data){
-						if(data=="success"){
-							alert("댓글이 정상적으로 등록되었습니다.");
-							$("#content").val("");
-						}
-					}
-				})
-			}
-			
-		})
-	})
-
 
 	$(function(){
 		$("#insertReply").on("click", function(){
@@ -311,7 +289,6 @@
 </body>
 <jsp:include page="/WEB-INF/views/template/footer.jsp"></jsp:include>
 <script type="text/javascript">
-// window.attachEvent(onload, getreplyList());
-	window.onload = getreplyList;
+window.attachEvent(onload, getreplyList());
 </script>
 </html>

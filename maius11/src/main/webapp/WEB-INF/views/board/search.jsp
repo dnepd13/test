@@ -29,7 +29,7 @@
 	.cont{
 		margin-left: 10px;
 		margin-right:10px;
-		margin-top: 40px;
+		margin-top: 25px;
 		height: 60%;
 		position: relative;
 		padding-bottom: 15px;
@@ -37,6 +37,7 @@
 	.bbttnn{
 		text-align:right; 
 		margin-right: 150px;
+		
 	}
 	.clickbtn{
 		border:none;
@@ -47,6 +48,25 @@
 		padding: 0.375rem 0.75rem;
 		text-decoration: none;
 	}
+		#search-btn{
+		width: 38px;
+	    height: 36px;    
+	    border: none;
+	    background: url(//img.icons8.com/material-outlined/24/000000/search.png) no-repeat 5px;
+	    line-height: 16px;
+	    outline: none;
+		}
+	#selectt{
+		font-family: 'Noto Sans';
+	    font-weight: 400;
+	    font-size: 14px;
+         padding-bottom: 3px;
+         border: none;
+         border-bottom:  1px solid black;
+       }
+       .frm{
+       	margin-right: 10%;
+       }
 </style>
 <body>
 <main>
@@ -58,13 +78,13 @@
 
 <div class="cont">
 <div align="right">
-<form action="search" method="get" >    	
+<form action="search" method="get" class="frm">    	
 		    		<select id="selectt" name="type">
 		    			<option value="board_title">글제목</option>
 		    			<option value="user_name">작성자</option>
 		    		</select>    		
 	    		<input type="text" name="keyword"  required>
-				<input id="search-btn" type="submit"  value="검색" >
+				<input id="search-btn" type="submit"  value="　"  >
 			</form>
 </div>
 	<table class="table table-hover"  align="center"  style="width: 80%; text-align: center; font-size: 14px;">
@@ -115,7 +135,7 @@
 			<a href="${pageContext.request.contextPath}/board/regist" class="aaa"><i class="fas fa-pencil-alt"></i>글쓰기</a>
 		</button>
 	</p>
-	  <div class="container nav" style="text-align: center;">
+	  <div class="container nav" style="text-align: center; margin-top: 3%;">
     		<!-- 네비게이터(navigator) -->    		
     		<jsp:include page="/WEB-INF/views/template/board_navigator.jsp">
     			<jsp:param name="pno" value="${pno}" />
@@ -129,7 +149,7 @@
 	</div>
 </section>
 	
+<jsp:include page="/WEB-INF/views/template/footer.jsp"></jsp:include>
 </main>
 </body>
-<jsp:include page="/WEB-INF/views/template/footer.jsp"></jsp:include>
 </html>
